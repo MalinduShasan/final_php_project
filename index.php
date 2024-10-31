@@ -116,7 +116,7 @@
                     <a href="#about">ABOUT</a>
                     <a href="./pages/contact_us.php">CONTACT US</a>
                     <a href="./pages/sign_up.php">REGISTER</a>
-                    <a href="./pages/login.php">SIGN UP</a>
+                    <a href="./pages/log_in.php">LOGIN</a>
                 </div>
             </div>
             <!--headder image-->
