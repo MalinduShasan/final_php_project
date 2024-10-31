@@ -1,6 +1,5 @@
 <?php 
-
-
+include '../database/regDB.php'; // Ensure this includes the connection to the database
 // Initialize variables to store error messages
 $nameErr = $emailErr = $passwordErr = $repeatPasswordErr = "";
 $name = $email = "";
@@ -43,9 +42,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-    // If no errors, you can proceed with further processing (like saving to a database)
-}
+    // If no errors, proceed with further processing (like saving to a database)
+    if (empty($nameErr) && empty($emailErr) && empty($passwordErr) && empty($repeatPasswordErr)) {
+        // Hash password for security
+        $hashedPassword = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+        
+        // Insert user into database
+        $stmt = $conn->prepare("INSERT INTO USER (Full_name, email, password) VALUES (?, ?, ?)");
+        
+        // Check if prepare() was successful
+        if (!$stmt) {
+            die("Prepare statement failed: " . $conn->error); // Display error if prepare fails
+        }
 
+        // Bind parameters
+        if (!$stmt->bind_param("sss", $name, $email, $hashedPassword)) {
+            die("Bind parameters failed: " . $stmt->error); // Check for bind error
+        }
+
+        // Execute statement and check for success
+        if ($stmt->execute()) {
+            echo "Registration successful!";
+        } else {
+            echo "Execution failed: " . $stmt->error; // Display execution error
+        }
+
+        // Close the statement
+        $stmt->close();
+    }
+
+    // Close the connection only when you're done with all DB operations
+    mysqli_close($conn);
+}
 ?>
 
 <style>
@@ -112,5 +140,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </form>
 </div>
-
-
