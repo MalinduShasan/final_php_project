@@ -92,6 +92,16 @@
         background-color: black;
         }
 
+        .adopt-cat{
+            text-align:center;
+            margin-top: 50px;
+            padding: 0px 25px;
+        }
+        .adopt-cat ,p{
+            font-size: 25px;
+        }
+
+
         @media screen and (max-width: 768px) {
             .header-image {
                 padding: 20px;
@@ -137,6 +147,14 @@
                     You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
                     <button class="btn-donate">Donate Now !</button> <!--donate now button-->
                 </div>
+            </div>
+
+            <!---adopt cats-->
+            <div class="adopt-cat">
+                <h2>ADOPT CATS</h2>
+                <h1>Bring a New Cat Home</h1>
+                <p></p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
+                responsible dog breeders like you.</p>
             </div>
         </body>
 </div>
