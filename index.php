@@ -7,7 +7,7 @@
         body { 
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: #9AECDB;
+        background-color: #25CCF7;
         }
 
         
@@ -81,7 +81,12 @@
             padding: 10px 15px;
             border-radius: 5px;
             background-color: #EAB543;
+            font-size: 100px;
+            color: white;
 
+        }
+        .btn-donate:hover {
+        background-color: black;
         }
 
         @media screen and (max-width: 500px) {
@@ -109,17 +114,17 @@
                 <div class="header-right">
                     <a class="active" href="#home">GALLARY</a>
                     <a href="#about">ABOUT</a>
-                    <a href="#contact_us">CONTACT US</a>
-                    <a href="#register">REGISTER</a>
-                    <a href="#sign_up">SIGN UP</a>
+                    <a href="./pages/contact_us.php">CONTACT US</a>
+                    <a href="./pages/sign_up.php">REGISTER</a>
+                    <a href="./pages/login.php">SIGN UP</a>
                 </div>
             </div>
             <!--headder image-->
             <div class="header-image">
                 <div class="header-text"> <!--headder text-->
-                    <h1>ANIMALS NEED Your Help!</h1>
+                    <h1>ANIMALS NEED Your Help !</h1>
                     You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
-                    <button class="btn-donate">Donate Now !</button>
+                    <button class="btn-donate">Donate Now !</button> <!--donate now button-->
                 </div>
             </div>
         </body>
