@@ -1,5 +1,6 @@
 <?php 
 
+
 // Initialize variables to store error messages
 $nameErr = $emailErr = $passwordErr = $repeatPasswordErr = "";
 $name = $email = "";
