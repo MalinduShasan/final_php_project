@@ -105,6 +105,33 @@
         .p_content{
             font-size: 25px;
         }
+
+         /* Container for columns */
+         .row {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            flex-wrap: wrap; 
+        }
+
+        /* Individual columns */
+        .column {
+            flex: 1;
+            margin: 10px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius:5px;
+        }
+
+        .column img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
         .about-container{
             display: flex;
             height: 500px;
@@ -123,7 +150,6 @@
             display:flex;
             width:250px;
             height:400px;
-            border: 1px solid black;
             margin-top:60px;
         }
 
@@ -135,7 +161,6 @@
                 align-items: flex-start;
             }
 
-            
             .header-right {
                 float: none;
             }
@@ -150,6 +175,10 @@
             .btn-donate {
                 font-size: 18px;
                 padding: 10px 15px;
+            }
+            .column {
+                flex: 0 0 100%; 
+                margin: 5px 0;
             }
         }
     </style>
@@ -183,6 +212,25 @@
                     <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
                     responsible dog breeders like you.</p>
                 </div>
+
+                <div class="row">
+                    <div class="column">
+                        <img src="images/cat1.jpg" alt="Image 1">
+                        <p>Text for Column 1</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/cat1.jpg" alt="Image 2">
+                        <p>Text for Column 2</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/cat1.jpg" alt="Image 3">
+                        <p>Text for Column 3</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/cat1.jpg" alt="Image 4">
+                        <p>Text for Column 4</p>
+                    </div>
+                </div>
              
                 <div class="about-container">
                     <div class="about-us">
@@ -195,7 +243,7 @@
                         </p>
                     </div>
                     <div class="about-image">
-                            <img src="#" alt="about us image">
+                            <img src="images/cat1.jpg" alt="about us image">
                     </div>
                 </div>
             </div>
