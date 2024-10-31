@@ -112,7 +112,7 @@
             <div class="header">
             <a href="#default" class="logo">Logo</a>
                 <div class="header-right">
-                    <a class="active" href="#home">GALLARY</a>
+                    <a class="active" href="./pages/category.php">CATEGORY</a>
                     <a href="#about">ABOUT</a>
                     <a href="./pages/contact_us.php">CONTACT US</a>
                     <a href="./pages/sign_up.php">REGISTER</a>
