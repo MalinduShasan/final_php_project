@@ -56,7 +56,7 @@
             background-image: url('images/background_image/bgimg.jfif');
             background-size: cover; 
             background-position: center;
-            height: 750px;
+            height: 700px;
             position: relative;
             display: flex;
             align-items: center;
@@ -72,8 +72,9 @@
             text-align: left;
             padding: 20px;
             border-radius: 8px;
-            height: 400px;
+            height: 300px;
             max-width: 50%;
+            width: 100%;
         }
 
         /* donate button style */
@@ -81,20 +82,23 @@
             padding: 10px 15px;
             border-radius: 5px;
             background-color: #EAB543;
-            font-size: 100px;
+            font-size: 30px;
             color: white;
+            margin-top: 20px;
+            cursor: pointer;
 
         }
         .btn-donate:hover {
         background-color: black;
         }
 
-        @media screen and (max-width: 500px) {
-            .header a {
-                float: none;
-                display: block;
-                text-align: left;
+        @media screen and (max-width: 768px) {
+            .header-image {
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
             }
+
             
             .header-right {
                 float: none;
@@ -102,7 +106,14 @@
 
             .header-text {
                 font-size: 24px;
-                padding: 10px;
+                padding: 15px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .btn-donate {
+                font-size: 18px;
+                padding: 10px 15px;
             }
         }
     </style>
