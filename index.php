@@ -1,4 +1,3 @@
-<div class="">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +9,9 @@
         background-color:#FFFFFF ;
         }
 
-        
-        * {box-sizing: border-box;}
+        .container {
+            padding:2px;
+        }
 
         /*header style*/
         .header {
@@ -93,7 +93,7 @@
         }
         .topic{
             font-size:35px;
-            color: white;
+            color: #e58e28;
             font-weight: bold;
         }
         .adopt-cat{
@@ -105,19 +105,26 @@
         .p_content{
             font-size: 25px;
         }
-      
+        .about-container{
+            display: flex;
+            height: 500px;
+        }
         .about-us{
+            flex:3;
+            display:flex;
+            flex-direction:column;
             text-align:left;
             font-size:25px; 
-            align-content:left;
             padding-left:20px;
-            width: 55%;
             height:auto;
-            display:flex;
         }
         .about-image{
+            flex:2;
+            display:flex;
             width:250px;
-            height:300px;
+            height:400px;
+            border: 1px solid black;
+            margin-top:60px;
         }
 
 
@@ -146,47 +153,51 @@
             }
         }
     </style>
-
+    </head>
         <body>
-            <!--headder-->
-            <div class="header">
-            <a href="#default" class="logo">Logo</a>
-                <div class="header-right">
-                    <a class="active" href="./pages/category.php">CATEGORY</a>
-                    <a href="#about">ABOUT</a>
-                    <a href="./pages/contact_us.php">CONTACT US</a>
-                    <a href="./pages/sign_up.php">REGISTER</a>
-                    <a href="./pages/log_in.php">LOGIN</a>
+            <!--header-->
+            <div class="container">
+                <div class="header">
+                <a href="#default" class="logo">Logo</a>
+                    <div class="header-right">
+                        <a class="active" href="./pages/category.php">CATEGORY</a>
+                        <a href="#about">ABOUT</a>
+                        <a href="./pages/contact_us.php">CONTACT US</a>
+                        <a href="./pages/sign_up.php">REGISTER</a>
+                        <a href="./pages/log_in.php">LOGIN</a>
+                    </div>
                 </div>
-            </div>
-            <!--headder image-->
-            <div class="header-image">
-                <div class="header-text"> <!--headder text-->
-                    <h1>ANIMALS NEED Your Help !</h1>
-                    You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
-                    <button class="btn-donate">Donate Now !</button> <!--donate now button-->
+                <!--headder image-->
+                <div class="header-image">
+                    <div class="header-text"> <!--headder text-->
+                        <h1>ANIMALS NEED Your Help !</h1>
+                        You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
+                        <button class="btn-donate">Donate Now !</button> <!--donate now button-->
+                    </div>
                 </div>
-            </div>
 
-            <!---adopt cats-->
-            <div class="adopt-cat">
-                <p class="topic">ADOPT CATS</p>
-                <h1>Bring a New Cat Home</h1>
-                <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
-                responsible dog breeders like you.</p>
-            </div>
-
-            <div class="about-us">
-                <p class="topic">ABOUT US</p>
-                <h1>What Makes Us Care About Pets?</h1>
-                <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, 
-                    surrounded by domestic animals and pets all the time till she went to college – 
-                    there might have been no Anilove animal shelter now. So as soon as she graduated with 
-                    her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
-                </p>
-                <div class="about-image">
-                    <img src="#" alt="about us image">
+                <!---adopt cats-->
+                <div class="adopt-cat">
+                    <p class="topic">ADOPT CATS</p>
+                    <h1>Bring a New Cat Home</h1>
+                    <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
+                    responsible dog breeders like you.</p>
+                </div>
+             
+                <div class="about-container">
+                    <div class="about-us">
+                        <p class="topic">ABOUT US</p>
+                        <h1>What Makes Us Care About Pets?</h1>
+                        <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, 
+                            surrounded by domestic animals and pets all the time till she went to college – 
+                            there might have been no Anilove animal shelter now. So as soon as she graduated with 
+                            her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                            <img src="#" alt="about us image">
+                    </div>
                 </div>
             </div>
         </body>
-</div>
+</html>
