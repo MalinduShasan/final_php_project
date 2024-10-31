@@ -7,7 +7,7 @@
         body { 
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: #25CCF7;
+        background-color:#FFFFFF ;
         }
 
         
@@ -81,16 +81,45 @@
         .btn-donate{
             padding: 10px 15px;
             border-radius: 5px;
-            background-color: #EAB543;
+            background-color: #e58e28;
             font-size: 30px;
-            color: white;
+            color: #FFFFFF;
             margin-top: 20px;
             cursor: pointer;
 
         }
         .btn-donate:hover {
-        background-color: black;
+        background-color: #f6b93b;
         }
+        .topic{
+            font-size:35px;
+            color: white;
+            font-weight: bold;
+        }
+        .adopt-cat{
+            text-align:center;
+            margin-top: 50px;
+            padding: 0px 25px 10px 25px; 
+            font-size:25px;   
+        }
+        .p_content{
+            font-size: 25px;
+        }
+      
+        .about-us{
+            text-align:left;
+            font-size:25px; 
+            align-content:left;
+            padding-left:20px;
+            width: 55%;
+            height:auto;
+            display:flex;
+        }
+        .about-image{
+            width:250px;
+            height:300px;
+        }
+
 
         @media screen and (max-width: 768px) {
             .header-image {
@@ -136,6 +165,27 @@
                     <h1>ANIMALS NEED Your Help !</h1>
                     You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
                     <button class="btn-donate">Donate Now !</button> <!--donate now button-->
+                </div>
+            </div>
+
+            <!---adopt cats-->
+            <div class="adopt-cat">
+                <p class="topic">ADOPT CATS</p>
+                <h1>Bring a New Cat Home</h1>
+                <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
+                responsible dog breeders like you.</p>
+            </div>
+
+            <div class="about-us">
+                <p class="topic">ABOUT US</p>
+                <h1>What Makes Us Care About Pets?</h1>
+                <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, 
+                    surrounded by domestic animals and pets all the time till she went to college – 
+                    there might have been no Anilove animal shelter now. So as soon as she graduated with 
+                    her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
+                </p>
+                <div class="about-image">
+                    <img src="#" alt="about us image">
                 </div>
             </div>
         </body>
