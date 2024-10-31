@@ -70,10 +70,18 @@
             font-size: 36px;
             font-weight: bold;
             text-align: left;
-            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 8px;
+            height: 400px;
             max-width: 50%;
+        }
+
+        /* donate button style */
+        .btn-donate{
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #EAB543;
+
         }
 
         @media screen and (max-width: 500px) {
@@ -109,8 +117,9 @@
             <!--headder image-->
             <div class="header-image">
                 <div class="header-text"> <!--headder text-->
-                    ANIMALS NEED Your Help!<br><br>
-                    You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!
+                    <h1>ANIMALS NEED Your Help!</h1>
+                    You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
+                    <button class="btn-donate">Donate Now !</button>
                 </div>
             </div>
         </body>
