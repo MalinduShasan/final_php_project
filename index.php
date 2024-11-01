@@ -192,6 +192,90 @@
             margin-top:60px;
         }
 
+        /*contact us*/
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Form styling */
+        .contact-form {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="tel"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Map box styling */
+        .map-container {
+            flex: 1;
+            background-color: #e3e3e3;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+            width: 100%; /* Full width */
+            max-width: 600px; /* Limit maximum width */
+            height: 400px; 
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 4px;
+        }
+
         @media screen and (max-width: 768px) {
             .header-image {
                 padding: 20px;
@@ -235,6 +319,11 @@
                 margin-top: 40px;
                 align-items:center;
             }
+
+            .contact-container {
+                flex-direction: column;
+                margin-top: 30px; 
+            }
            
         }
     </style>
@@ -271,19 +360,19 @@
                 <!--image gallery-->
                 <div class="row">
                     <div class="column">
-                        <img src="images/cat1.jpg" alt="Image 1">
+                        <img src="images/image_gallery/cat1.jpg" alt="Image 1">
                         <p>Text for Column 1</p>
                     </div>
                     <div class="column">
-                        <img src="images/cat1.jpg" alt="Image 2">
+                        <img src="images/image_gallery/cat1.jpg" alt="Image 2">
                         <p>Text for Column 2</p>
                     </div>
                     <div class="column">
-                        <img src="images/cat1.jpg" alt="Image 3">
+                        <img src="images/image_gallery/cat1.jpg" alt="Image 3">
                         <p>Text for Column 3</p>
                     </div>
                     <div class="column">
-                        <img src="images/cat1.jpg" alt="Image 4">
+                        <img src="images/image_gallery/cat1.jpg" alt="Image 4">
                         <p>Text for Column 4</p>
                     </div>
                 </div>
@@ -320,9 +409,65 @@
                         </p>
                     </div>
                     <div class="about-image">
-                        <img src="images/cat1.jpg" alt="about us image">
+                        <img src="images/about_us_image/cat1.jpg" alt="about us image">
                     </div>
-                </div>   
+                </div>
+                
+                <!--contact-us-->
+                <div class="contact-container">
+                    <!-- Form section -->
+                    <div class="contact-form">
+                    <p class="topic">CONTACT US</p>
+                        <form id="contactForm" onsubmit="return validateForm()">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" >
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" >
+
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" >
+
+                            <label for="address">Address:</label>
+                            <textarea id="address" name="address" ></textarea>
+
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+
+                    <!-- Map section -->
+                    <div class="map-container">  
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0053152362486!2d-122.41941508468134!3d37.77492977975924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064c2c65b17%3A0x5e33f5b5a86b48d9!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1602543923620!5m2!1sen!2s" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Form validation script -->
+                <script>
+                    function validateForm() {
+                        const name = document.getElementById("name").value;
+                        const email = document.getElementById("email").value;
+                        const phone = document.getElementById("phone").value;
+                        const address = document.getElementById("address").value;
+
+                        if (name === "" || email === "" || phone === "" || address === "") {
+                            alert("Please fill in all fields.");
+                            return false;
+                        }
+
+                        const namePattern = /^[A-Za-z\s]+$/;
+                        if (!namePattern.test(name)) {
+                            alert("Please enter only letters and spaces for the name.");
+                            return false;
+                        }
+
+                        const phonePattern = /^[0-9]{10}$/;
+                        if (!phonePattern.test(phone)) {
+                            alert("Please enter a valid 10-digit phone number.");
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>               
             </div>
         </body>
 </html>
