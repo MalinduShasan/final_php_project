@@ -180,8 +180,7 @@
             align-items: center;
             background-color: #e58e28;
             padding: 15px 0;
-            margin-top: 90px;
-            
+            margin-top: 90px;      
         }
 
         .status-bar-inner-container {
@@ -199,6 +198,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+        .status-bar-inner-box:hover{
+            transform: scale(1.05);
+            box-shadow: 0 10px 16px rgba(0,0,0,0.2);
         }
 
         .status-bar-inner-box img {
