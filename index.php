@@ -43,7 +43,7 @@
         }
 
         .header a.active {
-        background-color: dodgerblue;
+        background-color: #e58e26;
         color: white;
         }
 
@@ -81,7 +81,7 @@
         .btn-donate{
             padding: 10px 15px;
             border-radius: 5px;
-            background-color: #e58e28;
+            background-color: #e58e26;
             font-size: 30px;
             color: #FFFFFF;
             margin-top: 20px;
@@ -117,9 +117,9 @@
         /* Individual columns */
         .column {
             flex: 1;
-            margin: 10px;
+            margin: 5px;
             background-color: #f1f1f1;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
             font-size: 18px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -129,8 +129,47 @@
         .column img {
             width: 100%;
             height: 350px;
-            object-fit: cover;
+            object-fit: none;
         }
+
+        /*status bar styles*/
+        .status-bar-main-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e3e3e3; /* Removed extra space */
+            padding: 50px;
+            border-radius: 10px;
+            margin: 30px;
+        }
+        .status-bar-inner-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        /* Individual inner box styling */
+        .status-bar-inner-box {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 25px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image styling within each box */
+        .status-bar-inner-box img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
 
         .about-container{
             display: flex;
@@ -143,16 +182,15 @@
             text-align:left;
             font-size:25px; 
             padding-left:20px;
-            height:auto;
+            
         }
         .about-image{
             flex:2;
             display:flex;
-            width:250px;
-            height:400px;
+            width:100%;
+            height:auto;
             margin-top:60px;
         }
-
 
         @media screen and (max-width: 768px) {
             .header-image {
@@ -160,26 +198,44 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .header-right {
                 float: none;
             }
-
             .header-text {
                 font-size: 24px;
                 padding: 15px;
                 max-width: 100%;
                 margin: 0 auto;
             }
-
             .btn-donate {
                 font-size: 18px;
                 padding: 10px 15px;
             }
+
+            .status-bar-inner-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .status-bar-inner-box {
+                width: 100%;
+            }
+
             .column {
                 flex: 0 0 100%; 
                 margin: 5px 0;
+                padding-top:5px;
             }
+            .about-container {
+                flex-direction: column; /* Stack content vertically */
+                align-items: center;
+                height: auto; /* Adjust container height */
+            }
+
+            .about-image {
+                margin-top: 40px;
+                align-items:center;
+            }
+           
         }
     </style>
     </head>
@@ -231,7 +287,27 @@
                         <p>Text for Column 4</p>
                     </div>
                 </div>
-             
+
+                <div class="status-bar-main-box">
+                    <div class="status-bar-inner-container">
+                        <!-- Box 1 with image -->
+                        <div class="status-bar-inner-box">
+                            <img src="image1.jpg" alt="Image 1">
+                            <p>Box 1 Content</p>
+                        </div>
+                        <!-- Box 2 with image -->
+                        <div class="status-bar-inner-box">
+                            <img src="image2.jpg" alt="Image 2">
+                            <p>Box 2 Content</p>
+                        </div>
+                        <!-- Box 3 with image -->
+                        <div class="status-bar-inner-box">
+                            <img src="image3.jpg" alt="Image 3">
+                            <p>Box 3 Content</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="about-container">
                     <div class="about-us">
                         <p class="topic">ABOUT US</p>
@@ -243,9 +319,12 @@
                         </p>
                     </div>
                     <div class="about-image">
-                            <img src="images/cat1.jpg" alt="about us image">
+                        <img src="images/cat1.jpg" alt="about us image">
                     </div>
                 </div>
+
+                
             </div>
         </body>
 </html>
+pets adopted, how many pets , users
