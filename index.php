@@ -102,6 +102,7 @@
         button{
             background-color:#e58e26;
         }
+
         button:hover{
             background-color: #f6b93b;
         }
@@ -355,7 +356,7 @@
 
         /*footer styles*/
         .footer {
-            background-color: orange;
+            background-color: #e58e26;
             color: #fff;
             padding: 20px 10px;
             text-align: center;
