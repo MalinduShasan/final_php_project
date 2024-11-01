@@ -146,40 +146,46 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e3e3e3;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px;
+            background-color: #e58e28;
+            padding: 15px 0;
+            margin: 20px;
+            
         }
+
         .status-bar-inner-container {
             display: flex;
             justify-content: space-between;
-            width: 90%;
-            gap:20px;
+            width: 80%;
             max-width: 1950px;
+            gap: 80px;
         }
+
         .status-bar-inner-box {
             flex: 1;
             background-color: #f1f1f1;
-            padding: 25px;
-            margin:40px;
             text-align: center;
-            font-size: 18px;
             border-radius: 8px;
-            font-size:30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+
         .status-bar-inner-box img {
-            width: 90%;
-            height: 300px;
-            object-fit: fill;
-            border-radius: 5px;
-            margin-bottom: 15px;   
+            width: 100%;
+            height: 250px;
+            object-fit: content;
         }
-        .status-bar-p{
+
+        .status-bar-text {
+            padding: 15px;
+            font-size:25px;
+        }
+
+        .status-bar-p {
             color: #e58e26;
             font-weight: bold;
+            font-size: 24px;
         }
+
 
         /*about us*/
         .about-container {
@@ -202,6 +208,7 @@
         }
         .about-us h1 {
             margin: 0;
+            margin-bottom:20px;
         }
         .about-us p {
             margin-top: 10px;
@@ -281,7 +288,6 @@
             width: 100%;
             padding: 10px;
             color: white;
-            background-color: #007BFF;
             border: none;
             border-radius: 4px;
             font-size: 18px;
@@ -337,8 +343,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
             .status-bar-inner-box {
-                width: 100%;
+                width: 90%;
+                margin: 10px 0;
             }
 
             .column {
@@ -437,25 +445,32 @@
                 </div>
 
                 <!--status bar-->
-                <div class="status-bar-main-box">
+                <div class="status-bar-main-box"> 
                     <div class="status-bar-inner-container">
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/adopted_pets.jpg" alt="Image 1">
-                            <p>Pet Adopted</p>
-                            <p class="status-bar-p">#</p>
+                            <div class="status-bar-text">
+                                <p>Pet Adopted</p>
+                                <p class="status-bar-p">#</p>
+                            </div>
                         </div>
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/pets.jpg" alt="Image 2">
-                            <p>How Many Pets</p>
-                            <p class="status-bar-p">#</p>
+                            <div class="status-bar-text">
+                                <p>How Many Pets</p>
+                                <p class="status-bar-p">#</p>
+                            </div>
                         </div>
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/users.jpg" alt="Image 3">
-                            <p>Users</p>
-                            <p class="status-bar-p">#</p>
+                            <div class="status-bar-text">
+                                <p>Users</p>
+                                <p class="status-bar-p">#</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
                 <!--about us-->
                 <div class="about-container">
