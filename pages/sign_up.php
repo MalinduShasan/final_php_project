@@ -1,4 +1,5 @@
 <?php 
+include '..header.php';
 include '../database/regDB.php'; // Ensure this includes the connection to the database
 // Initialize variables to store error messages
 $nameErr = $emailErr = $passwordErr = $repeatPasswordErr = "";
