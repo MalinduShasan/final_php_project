@@ -1,9 +1,8 @@
 <?php 
-
+include '../database/db_connection.php';
 // Initialize variables to store error messages
 $emailErr = $passwordErr = "";
 $email = "";
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validate Email
     if (empty(trim($_POST['email']))) {
@@ -79,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!-- Form Body-->
 <div class="container">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        
         <div class="form-group">
             <input type="email" name="email" placeholder="Email" class="form-control" required value="<?php echo htmlspecialchars($email); ?>">
             <span class="error-message"><?php echo $emailErr; ?></span>

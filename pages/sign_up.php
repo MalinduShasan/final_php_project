@@ -63,6 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Execute statement and check for success
         if ($stmt->execute()) {
             echo "Registration successful!";
+            header("Location: log_in.php");
+            
         } else {
             echo "Execution failed: " . $stmt->error; // Display execution error
         }
