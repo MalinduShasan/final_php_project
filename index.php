@@ -72,9 +72,12 @@
             text-align: left;
             padding: 20px;
             border-radius: 8px;
-            height: 300px;
-            max-width: 50%;
+            height: auto;
+            max-width: 65%;
             width: 100%;
+            box-sizing: border-box;
+            margin-left: 100px;
+            
         }
 
         /* donate button style */
@@ -85,6 +88,9 @@
             color: #FFFFFF;
             margin-top: 20px;
             cursor: pointer;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
 
         }
         .btn-donate:hover {
@@ -168,8 +174,7 @@
             height: 300px;
             object-fit: fill;
             border-radius: 5px;
-            margin-bottom: 15px;
-            
+            margin-bottom: 15px;   
         }
         .status-bar-p{
             color: #e58e26;
@@ -177,26 +182,44 @@
         }
 
         /*about us*/
-        .about-container{
+        .about-container {
             display: flex;
-            height: 500px;
-            margin-top:70px;
+            height: auto;
+            margin-top: 70px;
+            flex-wrap: wrap;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .about-us{
-            flex:3;
-            display:flex;
-            flex-direction:column;
-            text-align:left;
-            font-size:25px; 
-            padding-left:20px;
-            
+        .about-us {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-size: 25px;
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 100%;
         }
-        .about-image{
-            flex:2;
-            display:flex;
-            width:100%;
-            height:auto;
-            margin-top:60px;
+        .about-us h1 {
+            margin: 0;
+        }
+        .about-us p {
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        .about-image {
+            flex: 2;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         /*contact us*/
@@ -204,33 +227,41 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 90px;
+            align-items: stretch;
+            gap: 50px;
             padding: 30px;
             max-width: 1500px;
             margin: 0 auto;
             margin-top: 70px;
         }
-
-        .contact-form {
-            flex: 1;
+        .contact-heading {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px; 
+            font-size: 25px;
+        }
+        .contact-form,
+        .map-container {
+            flex: 1 1 45%;
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
         }
-
         .contact-form h2 {
             margin-bottom: 20px;
         }
-
         .contact-form label {
             display: block;
             margin: 10px 0 5px;
             font-size: 25px;
         }
-
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form input[type="tel"],
@@ -242,62 +273,63 @@
             box-sizing: border-box;
             font-size: 16px;
         }
-
         .contact-form textarea {
             resize: vertical;
             min-height: 100px;
         }
-
         .contact-form button {
             width: 100%;
             padding: 10px;
             color: white;
+            background-color: #007BFF;
             border: none;
             border-radius: 4px;
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
         }
-
         .map-container {
-            flex: 1;
             background-color: #e3e3e3;
-            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-            width: 100%;
-            max-width: 100%;
-            min-width: 300px;
+            padding: 0;
             min-height: 400px;
+            box-sizing: border-box;
         }
-
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
-            border-radius: 4px;
+            border-radius: 8px;
         }
 
+        @media (max-width: 480px) {
+            .about-us {
+                font-size: 18px;
+            }
+
+            .about-image {
+                width: 100%;
+            }
+        }
 
         @media screen and (max-width: 768px) {
             .header-image {
-                padding: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-right {
-                float: none;
-            }
+                height: auto;
+                padding-right: 20px;
+                padding-left: 20px;
+                justify-content: center;
+            }          
             .header-text {
                 font-size: 24px;
-                padding: 15px;
+                text-align: center;
                 max-width: 100%;
-                margin: 0 auto;
+                width: 100%;
+                margin-left: 0;
             }
+
             .btn-donate {
-                font-size: 18px;
-                padding: 10px 15px;
+                font-size: 20px;
+                width: auto;
             }
 
            
@@ -314,27 +346,41 @@
                 margin: 5px 0;
                 padding-top:5px;
             }
+
             .about-container {
                 flex-direction: column;
                 align-items: center;
-                height: auto;
+            }
+            .about-us {
+                font-size: 20px;
+                padding: 10px;
             }
             .about-image {
-                margin-top: 40px;
-                align-items:center;
+                margin-top: 20px;
+                width: 80%;
             }
 
             .contact-container {
                 flex-direction: column;
-                margin-top: 30px; 
             }
-
+            .contact-form,
             .map-container {
-                flex-direction: column;
-                margin-top: 30px; 
+                width:100%;
+                min-width: auto;
+                min-height: 100px;
             }
-           
+            .map-container iframe {
+                height:450px;
+            }             
         }
+
+        @media (min-width: 1200px) {
+            .header-text {
+                margin-left: 100px;
+                
+            }
+        }
+
     </style>
     </head>
         <body>
@@ -352,10 +398,12 @@
                 </div>
                 <!--headder image-->
                 <div class="header-image">
-                    <div class="header-text"> <!--headder text-->
+                    <!--headder text-->
+                    <div class="header-text"> 
                         <h1>ANIMALS NEED Your Help !</h1>
                         You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
-                        <button class="btn-donate">Donate Now !</button> <!--donate now button-->
+                        <!--donate now button-->
+                        <button class="btn-donate">Donate Now !</button>
                     </div>
                 </div>
 
@@ -363,9 +411,11 @@
                 <div class="adopt-cat">
                     <h1 class="topic">ADOPT CATS</h1>
                     <h1>Bring a New Cat Home</h1>
-                    <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
-                    responsible dog breeders like you.</p>
+                    <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or 
+                        next 'Best in Show' winner, we proudly support dedicated responsible dog breeders like you.
+                    </p>
                 </div>
+
                 <!--image gallery-->
                 <div class="row">
                     <div class="column">
@@ -407,6 +457,7 @@
                     </div>
                 </div>
 
+                <!--about us-->
                 <div class="about-container">
                     <div class="about-us">
                         <h1 class="topic">ABOUT US</h1>
@@ -425,8 +476,11 @@
                 <!--contact-us-->
                 <div class="contact-container">
                     <!-- Form section -->
+                    <div class="contact-heading">
+                        <h1 class="topic">CONTACT US</h1>
+                    </div>
                     <div class="contact-form">
-                    <h1 class="topic">CONTACT US</h1>
+                   
                         <form id="contactForm" onsubmit="return validateForm()">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" >
@@ -446,7 +500,7 @@
 
                     <!-- Map section -->
                     <div class="map-container">  
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0053152362486!2d-122.41941508468134!3d37.77492977975924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064c2c65b17%3A0x5e33f5b5a86b48d9!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1602543923620!5m2!1sen!2s" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1585.151942092131!2d79.95830683063637!3d6.927079199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259cf8f150a75%3A0xe4958dff1d1c4083!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1693507658920!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
 
