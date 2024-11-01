@@ -72,9 +72,12 @@
             text-align: left;
             padding: 20px;
             border-radius: 8px;
-            height: 300px;
-            max-width: 50%;
+            height: auto;
+            max-width: 65%;
             width: 100%;
+            box-sizing: border-box;
+            margin-left: 100px;
+            
         }
 
         /* donate button style */
@@ -85,6 +88,9 @@
             color: #FFFFFF;
             margin-top: 20px;
             cursor: pointer;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
 
         }
         .btn-donate:hover {
@@ -282,22 +288,23 @@
 
         @media screen and (max-width: 768px) {
             .header-image {
-                padding: 20px;
-                flex-direction: column;
-                align-items: flex-start;
+                height: auto; /* Adjust height to fit content */
+                padding-right: 20px;
+                padding-left: 20px;
+                justify-content: center;
             }
-            .header-right {
-                float: none;
-            }
+            
             .header-text {
-                font-size: 24px;
-                padding: 15px;
+                font-size: 24px; /* Smaller font size */
+                text-align: center;
                 max-width: 100%;
-                margin: 0 auto;
+                width: 100%;
+                margin-left: 0;
             }
+
             .btn-donate {
-                font-size: 18px;
-                padding: 10px 15px;
+                font-size: 20px;
+                width: auto; /* Flexible width for smaller screens */
             }
 
            
@@ -335,6 +342,12 @@
             }
            
         }
+        @media (min-width: 1200px) {
+            .header-text {
+                margin-left: 100px;
+            }
+        }
+
     </style>
     </head>
         <body>
