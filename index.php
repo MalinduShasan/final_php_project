@@ -635,21 +635,21 @@
                 <div class="status-bar-main-box"> 
                     <div class="status-bar-inner-container">
                         <div class="status-bar-inner-box">
-                            <img src="images/status_bar_images/adopted_pets.jpg" alt="Image 1">
+                            <img src="images/status_bar_images/pet_adopted.jpg" alt="pet_adopted">
                             <div class="status-bar-text">
                                 <p>Pet Adopted</p>
                                 <p class="status-bar-count">#</p>
                             </div>
                         </div>
                         <div class="status-bar-inner-box">
-                            <img src="images/status_bar_images/pets.jpg" alt="Image 2">
+                            <img src="images/status_bar_images/pets.jpg" alt="pets">
                             <div class="status-bar-text">
                                 <p>How Many Pets</p>
                                 <p class="status-bar-count">#</p>
                             </div>
                         </div>
                         <div class="status-bar-inner-box">
-                            <img src="images/status_bar_images/users.jpg" alt="Image 3">
+                            <img src="images/status_bar_images/users.jpg" alt="users">
                             <div class="status-bar-text">
                                 <p>Users</p>
                                 <p class="status-bar-count">#</p>
