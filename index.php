@@ -279,8 +279,15 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 5px; 
             font-size: 25px;
+            margin-bottom:5px;
+        }
+        .contact-description {
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+            margin-top:-40px;
         }
         .contact-form,
         .map-container {
@@ -342,9 +349,58 @@
             border-radius: 8px;
         }
 
+        /*footer styles*/
+        .footer {
+            background-color: orange;
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+        .footer-logo img {
+            max-width: 150px;
+            margin-bottom: 10px;
+            border:1px solid white;
+            
+        }
+        .footer-about,
+        .footer-contact {
+            max-width: 400px;
+            padding: 10px;
+           
+        }
+        .footer-about p,
+        .footer-contact p {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        .footer-about .social-icons a img {
+            width: 50px;
+            margin: 0 5px;
+            transition: transform 0.3s;
+        }
+        .footer-about .social-icons a img:hover {
+            transform: scale(1.5);
+            opacity: 0.8;
+        }
+        .footer-bottom {
+            background-color: gray;
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            padding-bottom:10px;
+            font-size: 20px;
+        }
+
+
         @media (max-width: 480px) {
             .container {
-                padding: 10px; /* Further reduce padding for very small screens */
+                padding: 10px;
             }
             /*image gallery*/
             .image-gallery-row {
@@ -354,10 +410,12 @@
             .image-gallery-column {
                 flex: 1 1 auto;
                 margin: 5px 0;
+               
             }
 
             .image-gallery-column img {
                 height: 200px;
+                
             }
 
             .image-gallery-breed {
@@ -367,11 +425,26 @@
             .image-gallery-detail {
                 font-size: 0.8rem;
             }
+
+            /*footer*/
+            .footer-logo img {
+                max-width: 100px;
+            }
+
+            .footer-about p,
+            .footer-contact p {
+                font-size: 14px;
+            }
+
+            .footer-contact .social-icons a img {
+                width: 25px;
+            }
+
         }
 
         @media screen and (max-width: 768px) {
             .container {
-                padding: 15px; /* Adjust padding for smaller screens */
+                padding: 15px;
             }
             .header-image {
                 height: auto;
@@ -395,6 +468,7 @@
             /*image gallery*/
             .image-gallery-column {
                 flex: 1 1 100%;
+                justify-content: center;
             }
 
             .image-gallery-column img {
@@ -449,13 +523,33 @@
             }
             .map-container iframe {
                 height:450px;
-            }             
+            }
+            
+            /*footer*/
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            .footer-about, .footer-contact {
+                max-width: 100%;
+                text-align: center;
+                padding: 5px;
+            }
+
+            .footer-logo img {
+                max-width: 120px;
+            }
+
+            .footer-contact .social-icons {
+                justify-content: center;
+            }
         }
 
         @media (min-width: 1200px) {
             .header-text {
-                margin-left: 100px;
-                
+                margin-left: 80px;  
             }
         }
 
@@ -560,16 +654,16 @@
                     </div>
                 </div>
 
-
                 <!--about us-->
                 <div class="about-container">
                     <div class="about-us">
                         <h1 class="topic">ABOUT US</h1>
-                        <h1>What Makes Us Care About Pets?</h1>
-                        <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, 
-                            surrounded by domestic animals and pets all the time till she went to college – 
-                            there might have been no Anilove animal shelter now. So as soon as she graduated with 
-                            her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
+                        <h1>Our Passion for Pets</h1>
+                        <p>
+                            Our story began with a simple love for animals. Our founder grew up surrounded by pets, learning early on the joy and 
+                            comfort they bring to life. After years of dreaming and a degree in veterinary medicine, she set out to create Paw Haven — a place where every pet, 
+                            no matter their past, could find safety and love.Today, we’re here to help animals find families who will give them the care they deserve. Because 
+                            we believe that every pet deserves a home and every heart is made fuller by a pet’s love.
                         </p>
                     </div>
                     <div class="about-image">
@@ -579,10 +673,12 @@
                 
                 <!--contact-us-->
                 <div class="contact-container">
-                    <!-- Form section -->
                     <div class="contact-heading">
                         <h1 class="topic">CONTACT US</h1>
                     </div>
+                    <p class="contact-description">
+                        We’re here to help! Reach out with any questions or to start your adoption journey.
+                    </p>
                     <div class="contact-form">
                    
                         <form id="contactForm" onsubmit="return validateForm()">
@@ -608,6 +704,56 @@
                     </div>
                 </div>
 
+                <!--footer-->
+                <footer class="footer">
+                    <div class="footer-content">
+                        <div class="footer-logo">
+                            <img src="images/icons/logo.webp" alt="Site Logo">
+                        </div>
+
+                        <div class="footer-about">
+                            <p>Join us in giving every pet a loving home and a second chance!</p>
+                            <div class="social-icons">
+                                <a href="https://facebook.com/">
+                                    <img src="images/icons/facebook-icon.png" alt="Facebook">
+                                </a>
+                                <a href="https://whatsapp.com/">
+                                    <img src="images/icons/whatsapp-icon.png" alt="WhatsApp">
+                                </a>
+                                <a href="https://x.com/">
+                                    <img src="images/icons/twitter-icon.png" alt="Twitter">
+                                </a>
+                                <a href="https://www.instagram.com/">
+                                    <img src="images/icons/instagram-icon.png" alt="Instagram">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-contact">
+                            <p>Contact Us</p>
+                            <p>
+                                <a href="https://g.co/kgs/d1RP4n8" target="_blank">
+                                    <img src="images/icons/location-icon.png" alt="location" style="width:25px; height:25px;">
+                                </a> Pet Haven, Matara, Kamburupitiya
+                            </p>
+                            <p>
+                                <a href="https://gmail.com">
+                                    <img src="images/icons/gmail-icon.png" alt="gmail" style="width:25px; height:25px;">
+                                </a>info@petadopt.com
+                            </p>
+                            <p>
+                                <a href="tel:0410566777">
+                                    <img src="images/icons/telephone-icon.png" alt="telephone" style="width:25px; height:25px;">
+                                </a>0410566777
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>All rights reserved &copy; 2024</p>
+                    </div>
+                </footer>
+
                 <!-- Form validation script -->
                 <script>
                     function validateForm() {
@@ -616,14 +762,14 @@
                         const phone = document.getElementById("phone").value;
                         const address = document.getElementById("address").value;
 
-                        const namePattern = /^[A-Za-z\s]+$/;
-                        if (!namePattern.test(name)) {
-                            alert("Please enter only letters and spaces for the name.");
+                        if (name === "" || email === "" || phone === "" || address === "") {
+                            alert("Please fill in all fields.");
                             return false;
                         }
 
-                        if (name === "" || email === "" || phone === "" || address === "") {
-                            alert("Please fill in all fields.");
+                        const namePattern = /^[A-Za-z\s]+$/;
+                        if (!namePattern.test(name)) {
+                            alert("Please enter only letters for the name.");
                             return false;
                         }
 
