@@ -80,8 +80,7 @@
         /* donate button style */
         .btn-donate{
             padding: 10px 15px;
-            border-radius: 5px;
-            background-color: #e58e26;
+            border-radius: 5px; 
             font-size: 30px;
             color: #FFFFFF;
             margin-top: 20px;
@@ -89,10 +88,16 @@
 
         }
         .btn-donate:hover {
-        background-color: #f6b93b;
+            background-color: #f6b93b;
+        }
+        button{
+            background-color:#e58e26;
+        }
+        button:hover{
+            background-color: #f6b93b;
         }
         .topic{
-            font-size:35px;
+
             color: #e58e28;
             font-weight: bold;
         }
@@ -107,7 +112,7 @@
         }
 
         /*image gallery*/
-         .row {
+        .row {
             display: flex;
             justify-content: space-around;
             padding: 10px;
@@ -151,6 +156,7 @@
             flex: 1;
             background-color: #f1f1f1;
             padding: 25px;
+            margin:40px;
             text-align: center;
             font-size: 18px;
             border-radius: 8px;
@@ -158,7 +164,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .status-bar-inner-box img {
-            width: 100%;
+            width: 90%;
             height: 300px;
             object-fit: fill;
             border-radius: 5px;
@@ -174,6 +180,7 @@
         .about-container{
             display: flex;
             height: 500px;
+            margin-top:70px;
         }
         .about-us{
             flex:3;
@@ -195,21 +202,23 @@
         /*contact us*/
         .contact-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 20px;
+            gap: 90px;
             padding: 30px;
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
+            margin-top: 70px;
         }
 
-        /* Form styling */
         .contact-form {
             flex: 1;
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
         }
 
         .contact-form h2 {
@@ -219,6 +228,7 @@
         .contact-form label {
             display: block;
             margin: 10px 0 5px;
+            font-size: 25px;
         }
 
         .contact-form input[type="text"],
@@ -241,7 +251,6 @@
         .contact-form button {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 4px;
@@ -250,23 +259,17 @@
             margin-top: 15px;
         }
 
-        .contact-form button:hover {
-            background-color: #45a049;
-        }
-
-        /* Map box styling */
         .map-container {
             flex: 1;
             background-color: #e3e3e3;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 20px;
-            width: 100%; /* Full width */
-            max-width: 600px; /* Limit maximum width */
-            height: 400px; 
-            overflow: hidden;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 100%;
+            min-width: 300px;
+            min-height: 400px;
         }
 
         .map-container iframe {
@@ -275,6 +278,7 @@
             border: 0;
             border-radius: 4px;
         }
+
 
         @media screen and (max-width: 768px) {
             .header-image {
@@ -324,6 +328,11 @@
                 flex-direction: column;
                 margin-top: 30px; 
             }
+
+            .map-container {
+                flex-direction: column;
+                margin-top: 30px; 
+            }
            
         }
     </style>
@@ -352,7 +361,7 @@
 
                 <!---adopt cats-->
                 <div class="adopt-cat">
-                    <p class="topic">ADOPT CATS</p>
+                    <h1 class="topic">ADOPT CATS</h1>
                     <h1>Bring a New Cat Home</h1>
                     <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
                     responsible dog breeders like you.</p>
@@ -400,7 +409,7 @@
 
                 <div class="about-container">
                     <div class="about-us">
-                        <p class="topic">ABOUT US</p>
+                        <h1 class="topic">ABOUT US</h1>
                         <h1>What Makes Us Care About Pets?</h1>
                         <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, 
                             surrounded by domestic animals and pets all the time till she went to college – 
@@ -417,7 +426,7 @@
                 <div class="contact-container">
                     <!-- Form section -->
                     <div class="contact-form">
-                    <p class="topic">CONTACT US</p>
+                    <h1 class="topic">CONTACT US</h1>
                         <form id="contactForm" onsubmit="return validateForm()">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" >
@@ -449,14 +458,14 @@
                         const phone = document.getElementById("phone").value;
                         const address = document.getElementById("address").value;
 
-                        if (name === "" || email === "" || phone === "" || address === "") {
-                            alert("Please fill in all fields.");
-                            return false;
-                        }
-
                         const namePattern = /^[A-Za-z\s]+$/;
                         if (!namePattern.test(name)) {
                             alert("Please enter only letters and spaces for the name.");
+                            return false;
+                        }
+
+                        if (name === "" || email === "" || phone === "" || address === "") {
+                            alert("Please fill in all fields.");
                             return false;
                         }
 
