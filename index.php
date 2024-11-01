@@ -106,15 +106,13 @@
             font-size: 25px;
         }
 
-         /* Container for columns */
+        /*image gallery*/
          .row {
             display: flex;
             justify-content: space-around;
             padding: 10px;
             flex-wrap: wrap; 
         }
-
-        /* Individual columns */
         .column {
             flex: 1;
             margin: 5px;
@@ -125,12 +123,12 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             border-radius:5px;
         }
-
         .column img {
             width: 100%;
             height: 350px;
             object-fit: none;
         }
+
 
         /*status bar styles*/
         .status-bar-main-box {
@@ -172,7 +170,7 @@
             font-weight: bold;
         }
 
-
+        /*about us*/
         .about-container{
             display: flex;
             height: 500px;
@@ -229,11 +227,10 @@
                 padding-top:5px;
             }
             .about-container {
-                flex-direction: column; /* Stack content vertically */
+                flex-direction: column;
                 align-items: center;
-                height: auto; /* Adjust container height */
+                height: auto;
             }
-
             .about-image {
                 margin-top: 40px;
                 align-items:center;
@@ -271,7 +268,7 @@
                     <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
                     responsible dog breeders like you.</p>
                 </div>
-
+                <!--image gallery-->
                 <div class="row">
                     <div class="column">
                         <img src="images/cat1.jpg" alt="Image 1">
@@ -291,21 +288,19 @@
                     </div>
                 </div>
 
+                <!--status bar-->
                 <div class="status-bar-main-box">
                     <div class="status-bar-inner-container">
-                        <!-- Box 1 with image -->
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/adopted_pets.jpg" alt="Image 1">
                             <p>Pet Adopted</p>
                             <p class="status-bar-p">#</p>
                         </div>
-                        <!-- Box 2 with image -->
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/pets.jpg" alt="Image 2">
                             <p>How Many Pets</p>
                             <p class="status-bar-p">#</p>
                         </div>
-                        <!-- Box 3 with image -->
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/users.jpg" alt="Image 3">
                             <p>Users</p>
@@ -327,9 +322,7 @@
                     <div class="about-image">
                         <img src="images/cat1.jpg" alt="about us image">
                     </div>
-                </div>
-
-                
+                </div>   
             </div>
         </body>
 </html>
