@@ -137,20 +137,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e3e3e3; /* Removed extra space */
-            padding: 50px;
+            background-color: #e3e3e3;
+            padding: 30px;
             border-radius: 10px;
             margin: 30px;
         }
         .status-bar-inner-container {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
-            width: 100%;
-            max-width: 850px;
+            width: 90%;
+            gap:20px;
+            max-width: 1950px;
         }
-
-        /* Individual inner box styling */
         .status-bar-inner-box {
             flex: 1;
             background-color: #f1f1f1;
@@ -158,16 +156,20 @@
             text-align: center;
             font-size: 18px;
             border-radius: 8px;
+            font-size:30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        /* Image styling within each box */
         .status-bar-inner-box img {
             width: 100%;
-            height: 500px;
-            object-fit: cover;
+            height: 300px;
+            object-fit: fill;
             border-radius: 5px;
             margin-bottom: 15px;
+            
+        }
+        .status-bar-p{
+            color: #e58e26;
+            font-weight: bold;
         }
 
 
@@ -212,6 +214,7 @@
                 padding: 10px 15px;
             }
 
+           
             .status-bar-inner-container {
                 flex-direction: column;
                 align-items: center;
@@ -292,18 +295,21 @@
                     <div class="status-bar-inner-container">
                         <!-- Box 1 with image -->
                         <div class="status-bar-inner-box">
-                            <img src="image1.jpg" alt="Image 1">
-                            <p>Box 1 Content</p>
+                            <img src="images/status_bar_images/adopted_pets.jpg" alt="Image 1">
+                            <p>Pet Adopted</p>
+                            <p class="status-bar-p">#</p>
                         </div>
                         <!-- Box 2 with image -->
                         <div class="status-bar-inner-box">
-                            <img src="image2.jpg" alt="Image 2">
-                            <p>Box 2 Content</p>
+                            <img src="images/status_bar_images/pets.jpg" alt="Image 2">
+                            <p>How Many Pets</p>
+                            <p class="status-bar-p">#</p>
                         </div>
                         <!-- Box 3 with image -->
                         <div class="status-bar-inner-box">
-                            <img src="image3.jpg" alt="Image 3">
-                            <p>Box 3 Content</p>
+                            <img src="images/status_bar_images/users.jpg" alt="Image 3">
+                            <p>Users</p>
+                            <p class="status-bar-p">#</p>
                         </div>
                     </div>
                 </div>
@@ -327,4 +333,3 @@
             </div>
         </body>
 </html>
-pets adopted, how many pets , users
