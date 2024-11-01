@@ -4,52 +4,55 @@
     <style>
         /*body style*/
         body { 
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color:#FFFFFF ;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color:#FFFFFF;     
         }
 
         .container {
-            padding:2px;
+            padding:10px; 
+            max-width:2800px;
+            margin: 0 auto;  
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);       
         }
 
         /*header style*/
         .header {
-        overflow: hidden;
-        background-color: #f1f1f1;
-        padding: 20px 10px;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
         }
 
         .header a {
-        float: left;
-        color: black;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 18px; 
-        line-height: 25px;
-        border-radius: 4px;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
         }
 
         .header a.logo {
-        font-size: 25px;
-        font-weight: bold;
-        margin-left:10%
+            font-size: 25px;
+            font-weight: bold;
+            margin-left:10%;
         }
 
         .header a:hover {
-        background-color: #ddd;
-        color: black;
+            background-color: #ddd;
+            color: black;
         }
 
         .header a.active {
-        background-color: #e58e26;
-        color: white;
+            background-color: #e58e26;
+            color: white;
         }
 
         .header-right {
-        float: right;
-        padding-right:10%;
+            float: right;
+            padding-right:10%;
         }
 
         .header-image {
@@ -67,13 +70,13 @@
          /* Text on image styles */
          .header-text {
             color: white;
-            font-size: 36px;
+            font-size: 35px;
             font-weight: bold;
             text-align: left;
             padding: 20px;
             border-radius: 8px;
             height: auto;
-            max-width: 65%;
+            max-width: 55%;
             width: 100%;
             box-sizing: border-box;
             margin-left: 100px;
@@ -86,7 +89,7 @@
             border-radius: 5px; 
             font-size: 30px;
             color: #FFFFFF;
-            margin-top: 20px;
+            margin-top: 5px;
             cursor: pointer;
             display: inline-block;
             max-width: 100%;
@@ -118,26 +121,55 @@
         }
 
         /*image gallery*/
-        .row {
+        .image-gallery-row {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             padding: 10px;
             flex-wrap: wrap; 
         }
-        .column {
-            flex: 1;
-            margin: 5px;
-            background-color: #f1f1f1;
+
+        .image-gallery-column {
+            flex: 1 1 200px;
+            margin: 5px; 
             padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius:5px;
+            text-align: center; 
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 400px;
         }
-        .column img {
+
+        .image-gallery-column img {
             width: 100%;
-            height: 350px;
-            object-fit: none;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .image-gallery-column:hover img {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .image-gallery-column:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .image-gallery-breed {
+            font-family: 'Roboto', sans-serif; 
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .image-gallery-detail {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            padding: 5px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
         }
 
 
@@ -148,7 +180,7 @@
             align-items: center;
             background-color: #e58e28;
             padding: 15px 0;
-            margin: 20px;
+            margin-top: 90px;
             
         }
 
@@ -176,11 +208,13 @@
         }
 
         .status-bar-text {
+            font-weight:bold;
             padding: 15px;
             font-size:25px;
+            font-family: 'Roboto', sans-serif; 
         }
 
-        .status-bar-p {
+        .status-bar-count {
             color: #e58e26;
             font-weight: bold;
             font-size: 24px;
@@ -239,7 +273,7 @@
             padding: 30px;
             max-width: 1500px;
             margin: 0 auto;
-            margin-top: 70px;
+            margin-top: 20px;
         }
         .contact-heading {
             width: 100%;
@@ -309,16 +343,36 @@
         }
 
         @media (max-width: 480px) {
-            .about-us {
-                font-size: 18px;
+            .container {
+                padding: 10px; /* Further reduce padding for very small screens */
+            }
+            /*image gallery*/
+            .image-gallery-row {
+                justify-content: center;
             }
 
-            .about-image {
-                width: 100%;
+            .image-gallery-column {
+                flex: 1 1 auto;
+                margin: 5px 0;
+            }
+
+            .image-gallery-column img {
+                height: 200px;
+            }
+
+            .image-gallery-breed {
+                font-size: 1rem;
+            }
+
+            .image-gallery-detail {
+                font-size: 0.8rem;
             }
         }
 
         @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
             .header-image {
                 height: auto;
                 padding-right: 20px;
@@ -338,7 +392,23 @@
                 width: auto;
             }
 
-           
+            /*image gallery*/
+            .image-gallery-column {
+                flex: 1 1 100%;
+            }
+
+            .image-gallery-column img {
+                height: 250px;
+            }
+
+            .image-gallery-breed {
+                font-size: 1.2rem;
+            }
+
+            .image-gallery-detail {
+                font-size: 0.9rem;
+            }
+
             .status-bar-inner-container {
                 flex-direction: column;
                 align-items: center;
@@ -425,22 +495,41 @@
                 </div>
 
                 <!--image gallery-->
-                <div class="row">
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 1">
-                        <p>Text for Column 1</p>
+                <div class="image-gallery-row">
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/Turkish-Angora.jpg" alt="Image 1">
+                        <p class="image-gallery-breed">Turkish Angora</p>
+                        <p class="image-gallery-detail">
+                           Turkish Angoras are medium-sized cats with long, slender bodies, fine bones, and silky coats. They have large, 
+                           wide-set, pointed ears, and slightly slanted eyes. Their coats can be white, tabby, or black with a chocolate 
+                           brown undercoat. 
+                        </p>
+                        
                     </div>
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 2">
-                        <p>Text for Column 2</p>
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/British-Shorthair.jpg" alt="Image 2">
+                        <p class="image-gallery-breed">British Shorthair</p>
+                        <p class="image-gallery-detail">
+                            British Shorthairs are a calm and placid breed, who can live well with other pets.Health issues such as arthritis, 
+                            hyperthyroidism and hypertrophic cardiomyopathy can affect the breed. They require minimal exercise but need the right 
+                            food to avoid weight gain.
+                        </p>
                     </div>
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 3">
-                        <p>Text for Column 3</p>
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/American-Bobtail.jpg" alt="Image 3">
+                        <p class="image-gallery-breed">American Bobtail</p>
+                        <p class="image-gallery-detail">
+                            American Bobtails have a wildcat-like appearance with a bobbed tail, wedge-shaped face, and almond-shaped eyes. They can be 
+                            medium or long-haired, and come in many colors and patterns.
+                        </p>
                     </div>
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 4">
-                        <p>Text for Column 4</p>
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/Persian-Cat.jpg" alt="Image 4">
+                        <p class="image-gallery-breed">Persian Cat</p>
+                        <p class="image-gallery-detail">
+                            Persian cats have short, thick bodies, short necks, and short tails, with large, round eyes and small ears. They have a flat face in 
+                            profile, and their noses change direction so that you see mostly the colored flesh. Their coats are long, thick, and lustrous, with a soft undercoat.
+                        </p>
                     </div>
                 </div>
 
@@ -451,21 +540,21 @@
                             <img src="images/status_bar_images/adopted_pets.jpg" alt="Image 1">
                             <div class="status-bar-text">
                                 <p>Pet Adopted</p>
-                                <p class="status-bar-p">#</p>
+                                <p class="status-bar-count">#</p>
                             </div>
                         </div>
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/pets.jpg" alt="Image 2">
                             <div class="status-bar-text">
                                 <p>How Many Pets</p>
-                                <p class="status-bar-p">#</p>
+                                <p class="status-bar-count">#</p>
                             </div>
                         </div>
                         <div class="status-bar-inner-box">
                             <img src="images/status_bar_images/users.jpg" alt="Image 3">
                             <div class="status-bar-text">
                                 <p>Users</p>
-                                <p class="status-bar-p">#</p>
+                                <p class="status-bar-count">#</p>
                             </div>
                         </div>
                     </div>
@@ -484,7 +573,7 @@
                         </p>
                     </div>
                     <div class="about-image">
-                        <img src="images/about_us_image/cat1.jpg" alt="about us image">
+                        <img src="images/about_us_image/about-us-img.jpg" alt="about us image">
                     </div>
                 </div>
                 
