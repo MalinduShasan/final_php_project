@@ -1,7 +1,8 @@
-<?php 
+<?php
+include '../database/regDB.php'; // Update path if necessary
 
-// Initialize variables to store error messages
-$emailErr = $passwordErr = "";
+// Initialize variables for error messages and user input
+$emailErr = $passwordErr = $loginErr = "";
 $email = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -20,80 +21,83 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $passwordErr = "Password is required.";
     }
 
-    // If no errors, check the credentials
+    // Authenticate user if there are no validation errors
     if (empty($emailErr) && empty($passwordErr)) {
-        // Here you would typically check the credentials against a database
-        // For demonstration purposes, let's assume the following:
-        $validEmail = "user@example.com";  // Example email
-        $validPassword = "password123";     // Example password
+        $stmt = $conn->prepare("SELECT password FROM USER WHERE email = ?");
+        
+        if ($stmt) {
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $stmt->store_result();
 
-        if ($email === $validEmail && $_POST['password'] === $validPassword) {
-            echo "<script>alert('Login successful!');</script>";
-            // Redirect or start a session for the logged-in user
+            // Verify if the email exists and check the password
+            if ($stmt->num_rows == 1) {
+                $stmt->bind_result($hashedPassword);
+                $stmt->fetch();
+
+                if (password_verify(trim($_POST['password']), $hashedPassword)) {
+                    session_start();
+                    $_SESSION['email'] = $email;
+                    header("Location: dashboard.php");
+                    exit;
+                } else {
+                    $loginErr = "Incorrect password.";
+                }
+            } else {
+                $loginErr = "No account found with that email.";
+            }
+            
+            $stmt->close();
         } else {
-            $passwordErr = "Invalid email or password.";
+            $loginErr = "Error preparing statement: " . $conn->error;
         }
     }
+
+    mysqli_close($conn);
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Login Form</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; 
-            margin: 0;
-            background-color: #f0f0f0; 
-        }
-        .container {
-            max-width: 400px; 
-            width: 90%; 
-            padding: 30px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 20px; 
-        }
-        .form-btn {
-            text-align: center; 
-        }
-        .error-message {
-            color: red; 
-            font-size: 0.9em; 
-        }
-    </style>
-</head>
-<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-<!-- Form Body-->
+<style>
+    /* Centering the login form */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+    .container {
+        max-width: 400px;
+        padding: 30px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .error-message {
+        color: red;
+        font-size: 0.9em;
+    }
+</style>
+
+<!-- Login Form -->
 <div class="container">
+    <h2 class="text-center mb-4">Login</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group">
-            <input type="email" name="email" placeholder="Email" class="form-control" required value="<?php echo htmlspecialchars($email); ?>">
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="Email" class="form-control" value="<?php echo htmlspecialchars($email); ?>" required>
             <span class="error-message"><?php echo $emailErr; ?></span>
         </div>
-
-        <div class="form-group">
+        <div class="mb-3">
             <input type="password" name="password" placeholder="Password" class="form-control" required>
             <span class="error-message"><?php echo $passwordErr; ?></span>
         </div>
-
-        <div class="form-btn">
-            <input type="submit" name="submit" value="Login" class="btn btn-primary">
+        <div class="d-grid">
+            <input type="submit" value="Log In" class="btn btn-primary">
         </div>
+        <span class="error-message d-block text-center mt-3"><?php echo $loginErr; ?></span>
     </form>
 </div>
-
-</body>
-</html>
