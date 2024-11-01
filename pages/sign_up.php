@@ -66,7 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "Registration successful!";
             header("Location: log_in.php");
             exit();
-            
         } else {
             echo "Execution failed: " . $stmt->error; // Display execution error
         }
@@ -79,7 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     mysqli_close($conn);
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,6 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         /* Custom styles */
         body {
             background-color: #f0f0f0;
+            padding-top: 70px; /* Offset for fixed navbar */
         }
         .container {
             max-width: 600px;
@@ -114,6 +113,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         .error-message {
             color: red;
             font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .navbar-brand img {
+                display: none; /* Hide logo on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .form-group input {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
