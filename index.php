@@ -356,7 +356,7 @@
 
         /*footer styles*/
         .footer {
-            background-color: #333; /* Updated for a darker black tone */
+            background-color: #e58e26;
             color: #fff;
             padding: 20px 10px;
             text-align: center;
@@ -420,7 +420,7 @@
         }
 
         .footer-nav ul li a:hover {
-            color: #e58e26; /* Accent color for hover effect */
+            color: #222;
         }
 
         .footer-bottom {
