@@ -10,7 +10,6 @@
         }
 
         .container {
-            padding:10px; 
             max-width:2800px;
             margin: 0 auto;  
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);       
@@ -597,16 +596,7 @@
         <body>
             <!--header-->
             <div class="container">
-                <div class="header">
-                <a href="#default" class="logo">Logo</a>
-                    <div class="header-right">
-                        <a class="active" href="./pages/category.php">CATEGORY</a>
-                        <a href="#about">ABOUT</a>
-                        <a href="./pages/contact_us.php">CONTACT US</a>
-                        <a href="./pages/sign_up.php">REGISTER</a>
-                        <a href="./pages/log_in.php">LOGIN</a>
-                    </div>
-                </div>
+                <?php include 'pages/navbar.php'; ?>
                 <!--headder image-->
                 <div class="header-image">
                     <!--headder text-->

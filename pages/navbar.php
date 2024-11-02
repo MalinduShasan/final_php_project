@@ -177,7 +177,7 @@ nav li a:active {
 
 .hamburger-menu {
   position: fixed;
-  top: 1rem;
+  top: 2.5rem;
   right: 2rem;
   z-index: 10;
   cursor: pointer;
@@ -219,8 +219,8 @@ nav li a:active {
 
 section {
   width: 100%;
-  height: 100vh;
-  height: 100svh;
+  height: 10vh;
+  height: 10svh;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -231,10 +231,12 @@ section {
 .logo {
   position: fixed;
   z-index: 2;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 0 rem;
   font-size: 1.4rem;
+  margin-top: auto;
+  padding: 10px;
   letter-spacing: 0.3rem;
+  background: #7d5fff;
 }
 
 h1 {
@@ -244,7 +246,7 @@ h1 {
 }
 
 section#home {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background: #fff;
 }
 
 
@@ -323,7 +325,7 @@ section#home {
 </div>
 <!-- SECTIONS -->
 <section id="home" class="center">
-  <p class="logo"><img src="../images/logo/tplogo.png" alt=""  style= "width: 10%;"></p>
+  <p class="logo"><img src="images/logo/tplogo.png" alt="Pawsitive Home"  style= "width: 7%;"></p>
 </section>
 
 
