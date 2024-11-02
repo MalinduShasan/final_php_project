@@ -630,12 +630,12 @@
                 <!--image gallery-->
                 <div class="image-gallery-row">
                     <div class="image-gallery-column">
-                        <img src="images/image_gallery/Turkish-Angora.jpg" alt="Image 1">
-                        <p class="image-gallery-breed">Turkish Angora</p>
+                        <img src="images/image_gallery/rottweiler.jpg" alt="Image 1">
+                        <p class="image-gallery-breed">Rottweiler</p>
                         <p class="image-gallery-detail">
-                           Turkish Angoras are medium-sized cats with long, slender bodies, fine bones, and silky coats. They have large, 
-                           wide-set, pointed ears, and slightly slanted eyes. Their coats can be white, tabby, or black with a chocolate 
-                           brown undercoat. 
+                            Rottweilers are large, muscular dogs with short fur, broad heads, and wide-set eyes. They have 
+                            a medium-length, shiny, black coat with rust markings on their face, chest, and legs. Their ears 
+                            are tightly positioned and slightly hanging, and their muzzles are strong and square.
                         </p>
                         
                     </div>
@@ -649,11 +649,11 @@
                         </p>
                     </div>
                     <div class="image-gallery-column">
-                        <img src="images/image_gallery/American-Bobtail.jpg" alt="Image 3">
-                        <p class="image-gallery-breed">American Bobtail</p>
+                        <img src="images/image_gallery/american-bull-dog.jpg" alt="Image 3">
+                        <p class="image-gallery-breed">American Bull Dog</p>
                         <p class="image-gallery-detail">
-                            American Bobtails have a wildcat-like appearance with a bobbed tail, wedge-shaped face, and almond-shaped eyes. They can be 
-                            medium or long-haired, and come in many colors and patterns.
+                            American Bulldogs are stocky and muscular dogs. Male Bulldogs are visibly larger and stockier than females and typically grow 
+                            22 to 28 inches tall and weigh between 70 and 120 pounds. Female Bulldogs can be 20 to 26 inches tall and weigh from 60 to 100 pounds.
                         </p>
                     </div>
                     <div class="image-gallery-column">
