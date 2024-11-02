@@ -188,5 +188,66 @@
 <div class="alert alert-info" role="alert">
     <?php echo $result; ?>
 </div>
+
+<?php 
+    $hostname = "localhost";
+    $username = "root";
+    $password = "Dedu@1225";
+
+    $conn = mysqli_connect($hostname, $username, $password);
+
+    if(!$conn){
+        die("Connection failed: " .mysqli_connect_error());
+    }
+
+    $sql = " CREATE DATABASE IF NOT EXISTS pawsitive";
+    if(mysqli_query($conn , $sql)){
+        echo "Database created successfully!.<br>";
+
+    }else{
+        echo "Error creating database: ". mysqli_error($conn);
+    }
+
+    mysqli_select_db($conn, "pawsitive");
+
+    $table_sql = "CREATE TABLE IF NOT EXISTS donations (
+                donation_id INT PRIMARY KEY AUTO_INCREMENT,
+                donor_name VARCHAR(100),
+                donor_email VARCHAR(100),
+                amount DECIMAL(10, 2) NOT NULL,
+                donation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+                message TEXT
+            )";
+    if(mysqli_query($conn , $table_sql)){
+        echo "Table 'donation' created successfully!.<br>";
+
+    }else{
+        echo "Error creating database: ". mysqli_query($conn, $table_sql);
+    }
+
+    $data_sql = "INSERT INTO donations (donor_name, donor_email, amount, donation_date, message)
+    VALUES
+    ('John Doe', 'johndoe@example.com', 5000.00, '2024-10-05 09:00:00', 'Thank you for your great work!'),
+    ('Jane Smith', 'janesmith@example.com', 1000.00, '2024-10-06 14:30:00', 'Happy to support the animals.'),
+    ('Michael Brown', 'michaelbrown@example.com', 2500.00, '2024-10-07 11:45:00', 'Keep it up!'),
+    ('Sarah Johnson', 'sarahj@example.com', 20000.00, '2024-10-08 17:20:00', 'Wonderful cause, happy to help!'),
+    ('David Wilson', 'davidwilson@example.com', 2000.00, '2024-10-09 10:00:00', 'Best wishes to all the pets!'),
+    ('Linda Miller', 'lindamiller@example.com', 5000.00, '2024-10-10 12:15:00', 'Glad to contribute to such a worthy cause.'),
+    ('James Martin', 'jamesmartin@example.com', 5000.00, '2024-10-11 09:30:00', 'Hope this helps!'),
+    ('Patricia Garcia', 'patriciagarcia@example.com', 10000.00, '2024-10-12 14:00:00', 'Thank you for helping the animals.'),
+    ('Charles Hernandez', 'charleshernandez@example.com', 1000.00, '2024-10-13 15:45:00', 'Supporting the mission wholeheartedly.'),
+    ('Daniel Rodriguez', 'danielrodriguez@example.com', 1000.00, '2024-10-14 16:00:00', 'Grateful for your efforts.')";
+
+if(mysqli_query($conn , $data_sql)){
+    echo "Data inserted successfully!.<br>";
+
+}else{
+    echo "Error inserting database: ". mysqli_query($conn, $data_sql);
+} 
+
+mysqli_close($conn);
+?>
+
+
 </body>
 </html> 
