@@ -1,10 +1,12 @@
 <?php
 session_start();
-include '../database/regDB.php'; // Update path if necessary
+ob_start();
+include '../database/regDB.php'; 
 
 // Initialize variables for error messages and user input
 $emailErr = $passwordErr = $loginErr = "";
 $email = "";
+$isLoggedIn = false; // Flag to confirm successful login
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validate Email
@@ -37,11 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->fetch();
 
                 if (password_verify(trim($_POST['password']), $hashedPassword)) {
-                    $_SESSION['email'] = $email; // Start session for the user
-                    // Debug statement to check if the session is set
-                    error_log("User logged in: " . $email);
-                    header("Location: user_home.php"); // Redirect to user dashboard
-                    exit();
+                    $_SESSION['user_id'] = $email; // Start session for the user
+                    $isLoggedIn = true; // Set the login flag
                 } else {
                     $loginErr = "Incorrect password.";
                 }
@@ -56,6 +55,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     mysqli_close($conn);
+
+    // Redirect only if logged in successfully
+    if ($isLoggedIn) {
+        ob_clean(); // Clear output buffer before redirect
+        header("Location: user_home.php");
+        exit(); // Ensure the script stops after redirect
+    }
 }
 ?>
 

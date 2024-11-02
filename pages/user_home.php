@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Fetch user information from the database
 $userId = $_SESSION['user_id'];
-$stmt = $conn->prepare("SELECT Full_name, email FROM USER WHERE id = ?");
+$stmt = $conn->prepare("SELECT Full_name, email FROM USER WHERE user_id = ?");
 $stmt->bind_param("i", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -49,6 +49,26 @@ $conn->close();
         .logout-btn {
             margin-top: 20px;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .navbar-brand img {
+                display: none; /* Hide logo on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .form-group input {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,18 +90,35 @@ $conn->close();
         </div>
     </div>
 </nav>
-
 <!-- Dashboard Body -->
 <div class="container">
     <h1>Welcome, <?php echo htmlspecialchars($user['Full_name']); ?>!</h1>
     <div class="user-info">
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+        <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'] ?? 'No email found'); ?></p>
     </div>
     <a href="logout.php" class="btn btn-danger logout-btn">Logout</a>
 </div>
 
 <!-- Include Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Mu2txYdEdcdPPxysdwSTtfVSjzQKlSh5SFBSTgoxpZ1bP5smydVaRtHeYy+B8X4X" crossorigin="anonymous"></script>
+<!-- Sticky Navbar JavaScript -->
+<script>
+    // Get the navbar
+    const navbar = document.getElementById("navbar");
+
+    // Function to add sticky class on scroll
+    function stickyNavbar() {
+        // Check if the page has scrolled past the navbar's initial position
+        if (window.pageYOffset >= navbar.offsetTop) {
+            navbar.classList.add("sticky-top"); // Add Bootstrap's sticky-top class
+        } else {
+            navbar.classList.remove("sticky-top"); // Remove sticky class
+        }
+    }
+
+    // Attach scroll event listener to window
+    window.onscroll = stickyNavbar;
+</script>
 
 </body>
 </html>
