@@ -4,52 +4,55 @@
     <style>
         /*body style*/
         body { 
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color:#FFFFFF ;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color:#FFFFFF;     
         }
 
         .container {
-            padding:2px;
+            padding:10px; 
+            max-width:2800px;
+            margin: 0 auto;  
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);       
         }
 
         /*header style*/
         .header {
-        overflow: hidden;
-        background-color: #f1f1f1;
-        padding: 20px 10px;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
         }
 
         .header a {
-        float: left;
-        color: black;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 18px; 
-        line-height: 25px;
-        border-radius: 4px;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
         }
 
         .header a.logo {
-        font-size: 25px;
-        font-weight: bold;
-        margin-left:10%
+            font-size: 25px;
+            font-weight: bold;
+            margin-left:10%;
         }
 
         .header a:hover {
-        background-color: #ddd;
-        color: black;
+            background-color: #ddd;
+            color: black;
         }
 
         .header a.active {
-        background-color: #e58e26;
-        color: white;
+            background-color: #e58e26;
+            color: white;
         }
 
         .header-right {
-        float: right;
-        padding-right:10%;
+            float: right;
+            padding-right:10%;
         }
 
         .header-image {
@@ -67,14 +70,17 @@
          /* Text on image styles */
          .header-text {
             color: white;
-            font-size: 36px;
+            font-size: 35px;
             font-weight: bold;
             text-align: left;
             padding: 20px;
             border-radius: 8px;
-            height: 300px;
-            max-width: 50%;
+            height: auto;
+            max-width: 55%;
             width: 100%;
+            box-sizing: border-box;
+            margin-left: 100px;
+            
         }
 
         /* donate button style */
@@ -83,8 +89,11 @@
             border-radius: 5px; 
             font-size: 30px;
             color: #FFFFFF;
-            margin-top: 20px;
+            margin-top: 5px;
             cursor: pointer;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
 
         }
         .btn-donate:hover {
@@ -93,6 +102,7 @@
         button{
             background-color:#e58e26;
         }
+
         button:hover{
             background-color: #f6b93b;
         }
@@ -112,26 +122,55 @@
         }
 
         /*image gallery*/
-        .row {
+        .image-gallery-row {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             padding: 10px;
             flex-wrap: wrap; 
         }
-        .column {
-            flex: 1;
-            margin: 5px;
-            background-color: #f1f1f1;
+
+        .image-gallery-column {
+            flex: 1 1 200px;
+            margin: 5px; 
             padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius:5px;
+            text-align: center; 
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 400px;
         }
-        .column img {
+
+        .image-gallery-column img {
             width: 100%;
-            height: 350px;
-            object-fit: none;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .image-gallery-column:hover img {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .image-gallery-column:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .image-gallery-breed {
+            font-family: 'Roboto', sans-serif; 
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .image-gallery-detail {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            padding: 5px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
         }
 
 
@@ -140,63 +179,93 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e3e3e3;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px;
+            background-color: #e58e28;
+            padding: 15px 0;
+            margin-top: 90px;      
         }
+
         .status-bar-inner-container {
             display: flex;
             justify-content: space-between;
-            width: 90%;
-            gap:20px;
+            width: 80%;
             max-width: 1950px;
+            gap: 80px;
         }
+
         .status-bar-inner-box {
             flex: 1;
             background-color: #f1f1f1;
-            padding: 25px;
-            margin:40px;
             text-align: center;
-            font-size: 18px;
             border-radius: 8px;
-            font-size:30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s; 
         }
-        .status-bar-inner-box img {
-            width: 90%;
-            height: 300px;
-            object-fit: fill;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            
-        }
-        .status-bar-p{
-            color: #e58e26;
-            font-weight: bold;
+        .status-bar-inner-box:hover{
+            transform: scale(1.05);
+            box-shadow: 0 10px 16px rgba(0,0,0,0.2);
         }
 
+        .status-bar-inner-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: content;
+        }
+
+        .status-bar-text {
+            font-weight:bold;
+            padding: 15px;
+            font-size:25px;
+            font-family: 'Roboto', sans-serif; 
+        }
+
+        .status-bar-count {
+            color: #e58e26;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+
         /*about us*/
-        .about-container{
+        .about-container {
             display: flex;
-            height: 500px;
-            margin-top:70px;
+            height: auto;
+            margin-top: 70px;
+            flex-wrap: wrap;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .about-us{
-            flex:3;
-            display:flex;
-            flex-direction:column;
-            text-align:left;
-            font-size:25px; 
-            padding-left:20px;
-            
+        .about-us {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-size: 25px;
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 100%;
         }
-        .about-image{
-            flex:2;
-            display:flex;
-            width:100%;
-            height:auto;
-            margin-top:60px;
+        .about-us h1 {
+            margin: 0;
+            margin-bottom:20px;
+        }
+        .about-us p {
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        .about-image {
+            flex: 2;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         /*contact us*/
@@ -204,33 +273,48 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 90px;
+            align-items: stretch;
+            gap: 50px;
             padding: 30px;
             max-width: 1500px;
             margin: 0 auto;
-            margin-top: 70px;
+            margin-top: 20px;
         }
-
-        .contact-form {
-            flex: 1;
+        .contact-heading {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom:5px;
+        }
+        .contact-description {
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+            margin-top:-40px;
+        }
+        .contact-form,
+        .map-container {
+            flex: 1 1 45%;
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
         }
-
         .contact-form h2 {
             margin-bottom: 20px;
         }
-
         .contact-form label {
             display: block;
             margin: 10px 0 5px;
             font-size: 25px;
         }
-
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form input[type="tel"],
@@ -242,12 +326,10 @@
             box-sizing: border-box;
             font-size: 16px;
         }
-
         .contact-form textarea {
             resize: vertical;
             min-height: 100px;
         }
-
         .contact-form button {
             width: 100%;
             padding: 10px;
@@ -258,55 +340,162 @@
             cursor: pointer;
             margin-top: 15px;
         }
-
         .map-container {
-            flex: 1;
             background-color: #e3e3e3;
-            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-            width: 100%;
-            max-width: 100%;
-            min-width: 300px;
+            padding: 0;
             min-height: 400px;
+            box-sizing: border-box;
         }
-
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
-            border-radius: 4px;
+            border-radius: 8px;
+        }
+
+        /*footer styles*/
+        .footer {
+            background-color: #e58e26;
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+        .footer-logo img {
+            max-width: 150px;
+            margin-bottom: 10px;
+            border:1px solid white;
+            
+        }
+        .footer-about,
+        .footer-contact {
+            max-width: 400px;
+            padding: 10px;
+           
+        }
+        .footer-about p,
+        .footer-contact p {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        .footer-about .social-icons a img {
+            width: 50px;
+            margin: 0 5px;
+            transition: transform 0.3s;
+        }
+        .footer-about .social-icons a img:hover {
+            transform: scale(1.5);
+            opacity: 0.8;
+        }
+        .footer-bottom {
+            background-color: gray;
+            border-top: 1px solid #333;
+            padding-top: 5px;
+            padding-bottom:5px;
+            font-size: 20px;
         }
 
 
-        @media screen and (max-width: 768px) {
-            .header-image {
-                padding: 20px;
-                flex-direction: column;
-                align-items: flex-start;
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
             }
-            .header-right {
-                float: none;
+            /*image gallery*/
+            .image-gallery-row {
+                justify-content: center;
             }
-            .header-text {
-                font-size: 24px;
-                padding: 15px;
-                max-width: 100%;
-                margin: 0 auto;
+            .image-gallery-column {
+                flex: 1 1 100%;
+                margin:10px auto;
+                max-width:none;     
             }
-            .btn-donate {
-                font-size: 18px;
-                padding: 10px 15px;
+            .image-gallery-column img {
+                height: 200px;     
+            }
+            .image-gallery-breed {
+                font-size: 1rem;
+            }
+            .image-gallery-detail {
+                font-size: 0.8rem;
             }
 
-           
+            /*footer*/
+            .footer-logo img {
+                max-width: 100px;
+            }
+
+            .footer-about p,
+            .footer-contact p {
+                font-size: 14px;
+            }
+
+            .footer-contact .social-icons a img {
+                width: 25px;
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .header-image {
+                height: auto;
+                padding-right: 20px;
+                padding-left: 20px;
+                justify-content: center;
+            }          
+            .header-text {
+                font-size: 24px;
+                text-align: center;
+                max-width: 100%;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .btn-donate {
+                font-size: 20px;
+                width: auto;
+            }
+
+            /*image gallery*/
+            .image-gallery-row {
+                justify-content: center;
+            }
+
+            .image-gallery-column {
+                flex: 1 1 100%;
+                justify-content: center;
+                
+            }
+
+            .image-gallery-column img {
+                height: 250px;
+            }
+
+            .image-gallery-breed {
+                font-size: 1.2rem;
+            }
+
+            .image-gallery-detail {
+                font-size: 1rem;
+            }
+
             .status-bar-inner-container {
                 flex-direction: column;
                 align-items: center;
             }
+            
             .status-bar-inner-box {
-                width: 100%;
+                width: 90%;
+                margin: 10px 0;
             }
 
             .column {
@@ -314,27 +503,61 @@
                 margin: 5px 0;
                 padding-top:5px;
             }
+
             .about-container {
                 flex-direction: column;
                 align-items: center;
-                height: auto;
+            }
+            .about-us {
+                font-size: 20px;
+                padding: 10px;
             }
             .about-image {
-                margin-top: 40px;
-                align-items:center;
+                margin-top: 20px;
+                width: 80%;
             }
 
             .contact-container {
                 flex-direction: column;
-                margin-top: 30px; 
+            }
+            .contact-form,
+            .map-container {
+                width:100%;
+                min-width: auto;
+                min-height: 100px;
+            }
+            .map-container iframe {
+                height:450px;
+            }
+            
+            /*footer*/
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
             }
 
-            .map-container {
-                flex-direction: column;
-                margin-top: 30px; 
+            .footer-about, .footer-contact {
+                max-width: 100%;
+                text-align: center;
+                padding: 5px;
             }
-           
+
+            .footer-logo img {
+                max-width: 120px;
+            }
+
+            .footer-contact .social-icons {
+                justify-content: center;
+            }
         }
+
+        @media (min-width: 1200px) {
+            .header-text {
+                margin-left: 80px;  
+            }
+        }
+
     </style>
     </head>
         <body>
@@ -352,10 +575,12 @@
                 </div>
                 <!--headder image-->
                 <div class="header-image">
-                    <div class="header-text"> <!--headder text-->
+                    <!--headder text-->
+                    <div class="header-text"> 
                         <h1>ANIMALS NEED Your Help !</h1>
                         You can chip in with money & effort!  Cats, Dogs and Even Raccoons Adopt Any Pet You Like!<br><br>
-                        <button class="btn-donate">Donate Now !</button> <!--donate now button-->
+                        <!--donate now button-->
+                        <button class="btn-donate">Donate Now !</button>
                     </div>
                 </div>
 
@@ -363,70 +588,104 @@
                 <div class="adopt-cat">
                     <h1 class="topic">ADOPT CATS</h1>
                     <h1>Bring a New Cat Home</h1>
-                    <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or next 'Best in Show' winner, we proudly support dedicated
-                    responsible dog breeders like you.</p>
+                    <p>Ensure your puppies get off to a great start with our company. Whether you are breeding your first litter or 
+                        next 'Best in Show' winner, we proudly support dedicated responsible dog breeders like you.
+                    </p>
                 </div>
+
                 <!--image gallery-->
-                <div class="row">
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 1">
-                        <p>Text for Column 1</p>
+                <div class="image-gallery-row">
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/Turkish-Angora.jpg" alt="Image 1">
+                        <p class="image-gallery-breed">Turkish Angora</p>
+                        <p class="image-gallery-detail">
+                           Turkish Angoras are medium-sized cats with long, slender bodies, fine bones, and silky coats. They have large, 
+                           wide-set, pointed ears, and slightly slanted eyes. Their coats can be white, tabby, or black with a chocolate 
+                           brown undercoat. 
+                        </p>
+                        
                     </div>
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 2">
-                        <p>Text for Column 2</p>
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/British-Shorthair.jpg" alt="Image 2">
+                        <p class="image-gallery-breed">British Shorthair</p>
+                        <p class="image-gallery-detail">
+                            British Shorthairs are a calm and placid breed, who can live well with other pets.Health issues such as arthritis, 
+                            hyperthyroidism and hypertrophic cardiomyopathy can affect the breed. They require minimal exercise but need the right 
+                            food to avoid weight gain.
+                        </p>
                     </div>
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 3">
-                        <p>Text for Column 3</p>
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/American-Bobtail.jpg" alt="Image 3">
+                        <p class="image-gallery-breed">American Bobtail</p>
+                        <p class="image-gallery-detail">
+                            American Bobtails have a wildcat-like appearance with a bobbed tail, wedge-shaped face, and almond-shaped eyes. They can be 
+                            medium or long-haired, and come in many colors and patterns.
+                        </p>
                     </div>
-                    <div class="column">
-                        <img src="images/image_gallery/cat1.jpg" alt="Image 4">
-                        <p>Text for Column 4</p>
+                    <div class="image-gallery-column">
+                        <img src="images/image_gallery/Persian-Cat.jpg" alt="Image 4">
+                        <p class="image-gallery-breed">Persian Cat</p>
+                        <p class="image-gallery-detail">
+                            Persian cats have short, thick bodies, short necks, and short tails, with large, round eyes and small ears. They have a flat face in 
+                            profile, and their noses change direction so that you see mostly the colored flesh. Their coats are long, thick, and lustrous, with a soft undercoat.
+                        </p>
                     </div>
                 </div>
 
                 <!--status bar-->
-                <div class="status-bar-main-box">
+                <div class="status-bar-main-box"> 
                     <div class="status-bar-inner-container">
                         <div class="status-bar-inner-box">
-                            <img src="images/status_bar_images/adopted_pets.jpg" alt="Image 1">
-                            <p>Pet Adopted</p>
-                            <p class="status-bar-p">#</p>
+                            <img src="images/status_bar_images/pet_adopted.jpg" alt="pet_adopted">
+                            <div class="status-bar-text">
+                                <p>Pet Adopted</p>
+                                <p class="status-bar-count">#</p>
+                            </div>
                         </div>
                         <div class="status-bar-inner-box">
-                            <img src="images/status_bar_images/pets.jpg" alt="Image 2">
-                            <p>How Many Pets</p>
-                            <p class="status-bar-p">#</p>
+                            <img src="images/status_bar_images/pets.jpg" alt="pets">
+                            <div class="status-bar-text">
+                                <p>How Many Pets</p>
+                                <p class="status-bar-count">#</p>
+                            </div>
                         </div>
                         <div class="status-bar-inner-box">
-                            <img src="images/status_bar_images/users.jpg" alt="Image 3">
-                            <p>Users</p>
-                            <p class="status-bar-p">#</p>
+                            <img src="images/status_bar_images/users.jpg" alt="users">
+                            <div class="status-bar-text">
+                                <p>Users</p>
+                                <p class="status-bar-count">#</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!--about us-->
                 <div class="about-container">
                     <div class="about-us">
                         <h1 class="topic">ABOUT US</h1>
-                        <h1>What Makes Us Care About Pets?</h1>
-                        <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, 
-                            surrounded by domestic animals and pets all the time till she went to college – 
-                            there might have been no Anilove animal shelter now. So as soon as she graduated with 
-                            her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
+                        <h1>Our Passion for Pets</h1>
+                        <p>
+                            Our story began with a simple love for animals. Our founder grew up surrounded by pets, learning early on the joy and 
+                            comfort they bring to life. After years of dreaming and a degree in veterinary medicine, she set out to create Paw Haven — a place where every pet, 
+                            no matter their past, could find safety and love.Today, we’re here to help animals find families who will give them the care they deserve. Because 
+                            we believe that every pet deserves a home and every heart is made fuller by a pet’s love.
                         </p>
                     </div>
                     <div class="about-image">
-                        <img src="images/about_us_image/cat1.jpg" alt="about us image">
+                        <img src="images/about_us_image/about-us-img.jpg" alt="about us image">
                     </div>
                 </div>
                 
                 <!--contact-us-->
                 <div class="contact-container">
-                    <!-- Form section -->
+                    <div class="contact-heading">
+                        <h1 class="topic">CONTACT US</h1>
+                    </div>
+                    <p class="contact-description">
+                        We’re here to help! Reach out with any questions or to start your adoption journey.
+                    </p>
                     <div class="contact-form">
-                    <h1 class="topic">CONTACT US</h1>
+                   
                         <form id="contactForm" onsubmit="return validateForm()">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" >
@@ -446,9 +705,59 @@
 
                     <!-- Map section -->
                     <div class="map-container">  
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0053152362486!2d-122.41941508468134!3d37.77492977975924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064c2c65b17%3A0x5e33f5b5a86b48d9!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1602543923620!5m2!1sen!2s" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1585.151942092131!2d79.95830683063637!3d6.927079199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259cf8f150a75%3A0xe4958dff1d1c4083!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1693507658920!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
+
+                <!--footer-->
+                <footer class="footer">
+                    <div class="footer-content">
+                        <div class="footer-logo">
+                            <img src="images/icons/logo.webp" alt="Site Logo">
+                        </div>
+
+                        <div class="footer-about">
+                            <p>Join us in giving every pet a loving home and a second chance!</p>
+                            <div class="social-icons">
+                                <a href="https://facebook.com/">
+                                    <img src="images/icons/facebook-icon.png" alt="Facebook">
+                                </a>
+                                <a href="https://whatsapp.com/">
+                                    <img src="images/icons/whatsapp-icon.png" alt="WhatsApp">
+                                </a>
+                                <a href="https://x.com/">
+                                    <img src="images/icons/twitter-icon.png" alt="Twitter">
+                                </a>
+                                <a href="https://www.instagram.com/">
+                                    <img src="images/icons/instagram-icon.png" alt="Instagram">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-contact">
+                            <p>Contact Us</p>
+                            <p>
+                                <a href="https://g.co/kgs/d1RP4n8" target="_blank">
+                                    <img src="images/icons/location-icon.png" alt="location" style="width:25px; height:25px;">
+                                </a> Pet Haven, Matara, Kamburupitiya
+                            </p>
+                            <p>
+                                <a href="https://gmail.com">
+                                    <img src="images/icons/gmail-icon.png" alt="gmail" style="width:25px; height:25px;">
+                                </a>info@petadopt.com
+                            </p>
+                            <p>
+                                <a href="tel:0410566777">
+                                    <img src="images/icons/telephone-icon.png" alt="telephone" style="width:25px; height:25px;">
+                                </a>0410566777
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>All rights reserved &copy; 2024</p>
+                    </div>
+                </footer>
 
                 <!-- Form validation script -->
                 <script>
@@ -458,14 +767,14 @@
                         const phone = document.getElementById("phone").value;
                         const address = document.getElementById("address").value;
 
-                        const namePattern = /^[A-Za-z\s]+$/;
-                        if (!namePattern.test(name)) {
-                            alert("Please enter only letters and spaces for the name.");
+                        if (name === "" || email === "" || phone === "" || address === "") {
+                            alert("Please fill in all fields.");
                             return false;
                         }
 
-                        if (name === "" || email === "" || phone === "" || address === "") {
-                            alert("Please fill in all fields.");
+                        const namePattern = /^[A-Za-z\s]+$/;
+                        if (!namePattern.test(name)) {
+                            alert("Please enter only letters for the name.");
                             return false;
                         }
 
