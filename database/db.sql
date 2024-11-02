@@ -1,0 +1,10 @@
+CREATE DATABASE pawsitive;
+
+USE DATABASE pawsitive;
+
+CREATE TABLE USER(
+    User_id INT AUTO_INCREMENT PRIMARY KEY,
+    Full_name VARCHAR(100),
+    password VARCHAR(255),
+);
+
