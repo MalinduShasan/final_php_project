@@ -307,13 +307,11 @@
             justify-content: space-between;
             box-sizing: border-box;
         }
-        .contact-form h2 {
-            margin-bottom: 20px;
-        }
         .contact-form label {
             display: block;
             margin: 10px 0 5px;
             font-size: 25px;
+            font-weight: bold;
         }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
@@ -325,10 +323,18 @@
             border-radius: 4px;
             box-sizing: border-box;
             font-size: 16px;
+            transition: border-color 0.3s;
         }
         .contact-form textarea {
             resize: vertical;
             min-height: 100px;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form input[type="tel"]:focus,
+        .contact-form textarea:focus {
+            border-color: #e58e26;
+            outline: none;
         }
         .contact-form button {
             width: 100%;
@@ -339,6 +345,7 @@
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
+            transition: background-color 0.3s;
         }
         .map-container {
             background-color: #e3e3e3;
@@ -359,49 +366,79 @@
             background-color: #e58e26;
             color: #fff;
             padding: 20px 10px;
+            margin-top: 20px;
             text-align: center;
             font-family: 'Arial', sans-serif;
         }
+
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px 0;
         }
+
         .footer-logo img {
             max-width: 150px;
             margin-bottom: 10px;
-            border:1px solid white;
-            
+            border: 1px solid white;
         }
-        .footer-about,
-        .footer-contact {
-            max-width: 400px;
+
+        .footer-about, .footer-contact, .footer-nav {
+            max-width: 300px;
             padding: 10px;
-           
+            text-align: center;
         }
-        .footer-about p,
-        .footer-contact p {
+
+        .footer-about p, .footer-contact p, .footer-nav p {
             font-size: 22px;
             line-height: 1.6;
         }
+
         .footer-about .social-icons a img {
-            width: 50px;
+            width: 40px;
             margin: 0 5px;
             transition: transform 0.3s;
         }
+
         .footer-about .social-icons a img:hover {
-            transform: scale(1.5);
+            transform: scale(1.2);
             opacity: 0.8;
         }
-        .footer-bottom {
-            background-color: gray;
-            border-top: 1px solid #333;
-            padding-top: 5px;
-            padding-bottom:5px;
-            font-size: 20px;
+
+        .footer-contact img {
+            vertical-align: middle;
+            margin-right: 8px;
         }
 
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-nav ul li {
+            margin: 5px 0;
+        }
+
+        .footer-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 22px;
+            transition: color 0.3s;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #222;
+        }
+
+        .footer-bottom {
+            background-color: #222;
+            border-top: 1px solid #555;
+            padding: 5px;
+            font-size: 18px;
+            color: #ccc;
+            margin-top: 20px;
+        }
 
         @media (max-width: 480px) {
             .container {
@@ -534,13 +571,10 @@
             .footer-content {
                 flex-direction: column;
                 align-items: center;
-                padding: 10px 0;
             }
 
-            .footer-about, .footer-contact {
+            .footer-about, .footer-contact, .footer-nav {
                 max-width: 100%;
-                text-align: center;
-                padding: 5px;
             }
 
             .footer-logo img {
@@ -705,52 +739,56 @@
 
                     <!-- Map section -->
                     <div class="map-container">  
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1585.151942092131!2d79.95830683063637!3d6.927079199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259cf8f150a75%3A0xe4958dff1d1c4083!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1693507658920!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126741.09762828132!2d80.44700741759712!3d5.947089956067981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae131499d51cf9f%3A0x84313321e2e65873!2sMatara%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1698500887890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
 
                 <!--footer-->
                 <footer class="footer">
                     <div class="footer-content">
+                        <!-- Logo Column -->
                         <div class="footer-logo">
                             <img src="images/icons/logo.webp" alt="Site Logo">
                         </div>
 
+                        <!-- About Column -->
                         <div class="footer-about">
                             <p>Join us in giving every pet a loving home and a second chance!</p>
                             <div class="social-icons">
-                                <a href="https://facebook.com/">
-                                    <img src="images/icons/facebook-icon.png" alt="Facebook">
-                                </a>
-                                <a href="https://whatsapp.com/">
-                                    <img src="images/icons/whatsapp-icon.png" alt="WhatsApp">
-                                </a>
-                                <a href="https://x.com/">
-                                    <img src="images/icons/twitter-icon.png" alt="Twitter">
-                                </a>
-                                <a href="https://www.instagram.com/">
-                                    <img src="images/icons/instagram-icon.png" alt="Instagram">
-                                </a>
+                                <a href="https://facebook.com/"><img src="images/icons/facebook-icon.png" alt="Facebook"></a>
+                                <a href="https://whatsapp.com/"><img src="images/icons/whatsapp-icon.png" alt="WhatsApp"></a>
+                                <a href="https://x.com/"><img src="images/icons/twitter-icon.png" alt="Twitter"></a>
+                                <a href="https://www.instagram.com/"><img src="images/icons/instagram-icon.png" alt="Instagram"></a>
                             </div>
                         </div>
-                        
+
+                        <!-- Contact Column -->
                         <div class="footer-contact">
                             <p>Contact Us</p>
                             <p>
-                                <a href="https://g.co/kgs/d1RP4n8" target="_blank">
-                                    <img src="images/icons/location-icon.png" alt="location" style="width:25px; height:25px;">
-                                </a> Pet Haven, Matara, Kamburupitiya
+                                <a href="https://www.google.com/maps/place/Matara,+Sri+Lanka/@5.9470899,80.4470074,12z" target="_blank" target="_blank"><img src="images/icons/location-icon.png" alt="location" style="width:25px; height:25px;"></a>
+                                Pet Haven, Matara, Kamburupitiya
                             </p>
                             <p>
-                                <a href="https://gmail.com">
-                                    <img src="images/icons/gmail-icon.png" alt="gmail" style="width:25px; height:25px;">
-                                </a>info@petadopt.com
+                                <a href="mailto:info@petadopt.com"><img src="images/icons/gmail-icon.png" alt="gmail" style="width:25px; height:25px;"></a>
+                                info@petadopt.com
                             </p>
                             <p>
-                                <a href="tel:0410566777">
-                                    <img src="images/icons/telephone-icon.png" alt="telephone" style="width:25px; height:25px;">
-                                </a>0410566777
+                                <a href="tel:0410566777"><img src="images/icons/telephone-icon.png" alt="telephone" style="width:25px; height:25px;"></a>
+                                0410566777
                             </p>
+                        </div>
+
+                        <!-- New Navigation Links Column -->
+                        <div class="footer-nav">
+                            <p>Quick Links</p>
+                            <ul>
+                                <li><a href="#login">Login</a></li>
+                                <li><a href="#signup">Sign Up</a></li>
+                                <li><a href="#category">Category</a></li>
+                                <li><a href="#contact">Contact Us</a></li>
+                                <li><a href="#about">About Us</a></li>
+                            </ul>
                         </div>
                     </div>
 
@@ -758,6 +796,7 @@
                         <p>All rights reserved &copy; 2024</p>
                     </div>
                 </footer>
+
 
                 <!-- Form validation script -->
                 <script>
