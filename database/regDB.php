@@ -28,11 +28,19 @@ if (!$conn) {
 }
 
 // Create table if it doesn't exist
-$sql = "CREATE TABLE IF NOT EXISTS USER (
-    User_id INT AUTO_INCREMENT PRIMARY KEY,
-    Full_name VARCHAR(100),
-    email VARCHAR(255), 
-    password VARCHAR(255)
+$sql = "CREATE TABLE IF NOT EXISTS users (
+    user_id CHAR(8) PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(15),
+    address VARCHAR(255) NOT NULL,
+    zip_code VARCHAR(10),
+    role ENUM('admin', 'user') DEFAULT 'user',
+    img_url VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );";
 
 if (!mysqli_query($conn, $sql)) {

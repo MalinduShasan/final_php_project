@@ -1,9 +1,12 @@
 <?php
-include '../database/regDB.php'; // Update path if necessary
+session_start();
+ob_start();
+include '../database/regDB.php'; 
 
 // Initialize variables for error messages and user input
 $emailErr = $passwordErr = $loginErr = "";
 $email = "";
+$isLoggedIn = false; // Flag to confirm successful login
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validate Email
@@ -36,10 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->fetch();
 
                 if (password_verify(trim($_POST['password']), $hashedPassword)) {
-                    session_start();
-                    $_SESSION['email'] = $email;
-                    header("Location: dashboard.php");
-                    exit;
+                    $_SESSION['user_id'] = $email; // Start session for the user
+                    $isLoggedIn = true; // Set the login flag
                 } else {
                     $loginErr = "Incorrect password.";
                 }
@@ -54,34 +55,65 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     mysqli_close($conn);
+
+    // Redirect only if logged in successfully
+    if ($isLoggedIn) {
+        ob_clean(); // Clear output buffer before redirect
+        header("Location: user_home.php");
+        exit(); // Ensure the script stops after redirect
+    }
 }
 ?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
 
-<style>
-    /* Centering the login form */
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f0f0f0;
-    }
-    .container {
-        max-width: 400px;
-        padding: 30px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .error-message {
-        color: red;
-        font-size: 0.9em;
-    }
-</style>
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="../images/logo/tplogo.png" alt="Pawsitive Home" style="width: 7%;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="sign_up.php">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <!-- Login Form -->
 <div class="container">
@@ -101,3 +133,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <span class="error-message d-block text-center mt-3"><?php echo $loginErr; ?></span>
     </form>
 </div>
+
+</body>
+</html>
