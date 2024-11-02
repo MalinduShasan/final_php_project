@@ -731,7 +731,7 @@
 
                     <!-- Map section -->
                     <div class="map-container">  
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1585.151942092131!2d79.95830683063637!3d6.927079199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259cf8f150a75%3A0xe4958dff1d1c4083!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1693507658920!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126741.09762828132!2d80.44700741759712!3d5.947089956067981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae131499d51cf9f%3A0x84313321e2e65873!2sMatara%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1698500887890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
 
@@ -758,7 +758,7 @@
                         <div class="footer-contact">
                             <p>Contact Us</p>
                             <p>
-                                <a href="https://g.co/kgs/d1RP4n8" target="_blank"><img src="images/icons/location-icon.png" alt="location" style="width:25px; height:25px;"></a>
+                                <a href="https://www.google.com/maps/place/Matara,+Sri+Lanka/@5.9470899,80.4470074,12z" target="_blank" target="_blank"><img src="images/icons/location-icon.png" alt="location" style="width:25px; height:25px;"></a>
                                 Pet Haven, Matara, Kamburupitiya
                             </p>
                             <p>
