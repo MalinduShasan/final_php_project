@@ -630,7 +630,7 @@
                 <!--image gallery-->
                 <div class="image-gallery-row">
                     <div class="image-gallery-column">
-                        <img src="images/image_gallery/rottweiler.jpg" alt="Image 1">
+                        <img src="images/image_gallery/rottweiler.jpg" alt="Rottweiler">
                         <p class="image-gallery-breed">Rottweiler</p>
                         <p class="image-gallery-detail">
                             Rottweilers are large, muscular dogs with short fur, broad heads, and wide-set eyes. They have 
@@ -640,7 +640,7 @@
                         
                     </div>
                     <div class="image-gallery-column">
-                        <img src="images/image_gallery/British-Shorthair.jpg" alt="Image 2">
+                        <img src="images/image_gallery/British-Shorthair.jpg" alt="British Shorthair">
                         <p class="image-gallery-breed">British Shorthair</p>
                         <p class="image-gallery-detail">
                             British Shorthairs are a calm and placid breed, who can live well with other pets.Health issues such as arthritis, 
@@ -649,7 +649,7 @@
                         </p>
                     </div>
                     <div class="image-gallery-column">
-                        <img src="images/image_gallery/american-bull-dog.jpg" alt="Image 3">
+                        <img src="images/image_gallery/american-bull-dog.jpg" alt="American Bull Dog">
                         <p class="image-gallery-breed">American Bull Dog</p>
                         <p class="image-gallery-detail">
                             American Bulldogs are stocky and muscular dogs. Male Bulldogs are visibly larger and stockier than females and typically grow 
@@ -657,7 +657,7 @@
                         </p>
                     </div>
                     <div class="image-gallery-column">
-                        <img src="images/image_gallery/Persian-Cat.jpg" alt="Image 4">
+                        <img src="images/image_gallery/Persian-Cat.jpg" alt="Persian Cat">
                         <p class="image-gallery-breed">Persian Cat</p>
                         <p class="image-gallery-detail">
                             Persian cats have short, thick bodies, short necks, and short tails, with large, round eyes and small ears. They have a flat face in 
@@ -779,7 +779,7 @@
                             </p>
                         </div>
 
-                        <!-- New Navigation Links Column -->
+                        <!--Navigation Links Column-->
                         <div class="footer-nav">
                             <p>Quick Links</p>
                             <ul>
@@ -798,7 +798,7 @@
                 </footer>
 
 
-                <!-- Form validation script -->
+                <!--Form validation script-->
                 <script>
                     function validateForm() {
                         const name = document.getElementById("name").value;
