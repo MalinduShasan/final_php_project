@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../database/regDB.php'; // Update path if necessary
 
 // Initialize variables for error messages and user input
@@ -36,10 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->fetch();
 
                 if (password_verify(trim($_POST['password']), $hashedPassword)) {
-                    session_start();
-                    $_SESSION['email'] = $email;
-                    header("Location: dashboard.php");
-                    exit;
+                    $_SESSION['email'] = $email; // Start session for the user
+                    // Debug statement to check if the session is set
+                    error_log("User logged in: " . $email);
+                    header("Location: user_home.php"); // Redirect to user dashboard
+                    exit();
                 } else {
                     $loginErr = "Incorrect password.";
                 }
@@ -57,60 +59,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-<style>
-    /* Centering the login form */
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f0f0f0;
-    }
-    .container {
-        max-width: 400px;
-        padding: 30px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .error-message {
-        color: red;
-        font-size: 0.9em;
-    }
-</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Login</title>
     
-    <!-- Link to Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
     <style>
-        /* Custom styles */
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             background-color: #f0f0f0;
         }
         .container {
-            max-width: 600px;
-            width: 90%;
+            max-width: 400px;
             padding: 30px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
             background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-btn {
-            text-align: center;
         }
         .error-message {
             color: red;
@@ -135,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div>
 </nav>
+
 <!-- Login Form -->
 <div class="container">
     <h2 class="text-center mb-4">Login</h2>
@@ -153,3 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <span class="error-message d-block text-center mt-3"><?php echo $loginErr; ?></span>
     </form>
 </div>
+
+</body>
+</html>
