@@ -23,6 +23,7 @@
 
     
     <div class="form-check mb-2">
+    <form method="POST">    
         <input type="radio" class="form-check-input" name="amount" id="a1000">
         <label class="form-check-label" for="a1000">Rs 1000</label><br>
     
@@ -38,42 +39,38 @@
         <input type="radio" class="form-check-input" name="amount" id="a20000">
         <label class="form-check-label" for="a20000">Rs 20000</label><br>
 </div>
-    
+   <!--
     <div class="form-check">
-        <input type="radio" class="form-check-input" name="amount" id="aOther">
+         <input type="radio" class="form-check-input" name="amount" id="aOther">
         <label class="form-check-label" for="aOther">
             Other Rs: <input type="text" class="form-control d-inline w-auto ms-2" name="other" placeholder="Enter amount">
-        </label>
-    </div>
+        </label></form>
+    </div> -->
 </div>
 
 <div class="container border border-dark p-4 my-5">
     <h2 class="mb-3">I would like my donations to be used for</h2>
     
     <div class="form-check">
+        <form>
         <input type="radio" class="form-check-input" name="pet" id="pawsitive">
-        <label class="form-check-label" for="pawsitive">Pawsitive_Home</label>
+        <label class="form-check-label" for="pawsitive">Pawsitive_Home</label></form>
     </div>
 </div>
 
 <div class="container border border-dark p-4 my-5">
     <h2>Donor Information</h2>
 
-    <form>
+    <form method="POST" action="">
         <div class="mb-2">
-            <label class="form-label" for="firstName">First Name:</label>
-            <input type="text" class="form-control" id="firstName" name="firstName">
-        
-
-        
-            <label class="form-label" for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" name="lastName">
+            <label class="form-label" for="FullName" >Full Name:</label>
+            <input type="text" class="form-control" id="fullName" name="fullName">
         
 
         <p style="color:darkred;"><i>*Please give the address that is associated with your card</i></p>
 
        
-            <label class="form-label" for="country">Country:</label>
+            <label class="form-label" for="Country">Country:</label>
             <input type="text" class="form-control" id="country" name="country">
         
             <label class="form-label" for="address">Street Address:</label>
@@ -88,27 +85,27 @@
             <label class="form-label" for="zip">Zip/Postal Code:</label>
             <input type="text" class="form-control" id="zip" name="zip">
         
-            <label class="form-label" for="contactNo">Contact No:</label>
+            <label class="form-label" for="ContactNo">Contact No:</label>
             <input type="text" class="form-control" id="contactNo" name="contactNo">
         
-            <label class="form-label" for="email">Email:</label>
+            <label class="form-label" for="Email">Email:</label>
             <input type="email" class="form-control" id="email" name="email">
     
             <label class="form-label" for="remarks">Remarks:</label>
-            <textarea class="form-control" cols="20" rows="3">
+            <textarea class="form-control" cols="20" rows="3" name="remarks">
 </textarea><br>
 
 <input type="checkbox" name="agree">
 <label class="form-label" for="agree">Donate as a gift</label>
 
         </div>
-    </form>
+   
 </div>
 
 <div class="container border border-dark p-4 my-5">
     <h2 class="mb-3">Payment Option</h2>
     
-    <form>
+   
         <div class="form-check mb-2">
             <input type="radio" class="form-check-input" name="payment" id="visaMaster">
             <label class="form-check-label" for="visaMaster">Visa / Master</label>
@@ -119,7 +116,8 @@
             <label class="form-check-label" for="paypal">Paypal</label>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">DONATE</button>
+        <button type="submit" class="btn btn-primary mt-3" name="donate">DONATE</button>
+        
     </form>
 </div>
 </div>
@@ -150,5 +148,45 @@
     </div>
 </div>  
 </div></div>
+
+<?php 
+    $result = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        
+     $country = $_POST['country'];
+     $streetAddress = $_POST['address'];
+     $city = $_POST['city'];
+     $state = $_POST['state'];
+     $name = $_POST['fullName'] ;
+     $email = $_POST['email'] ;
+     $contact = $_POST['contactNo'];
+     $postal_code = $_POST['zip'];$remark = $_POST['remarks'];
+     
+    if(empty($name) || empty($email) || empty($contact) || empty($postal_code)  || empty($country) || empty($streetAddress) || empty($city) || empty($state)){
+        $result = "Please fill the all field.";
+    }
+
+     elseif(!preg_match ('/^[A-Za-z]+$/' , $name)){
+        $result = "Only letters and spaces allowed in name.";
+     }
+
+     elseif( !filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $result = "Invalid email format.";
+     }
+
+     elseif(!preg_match ('/^\(\d{3}\) \d{3}-\d{4}$/', $contact)){
+        $result = "Invalid phone number format. ";
+     }
+     else{
+        $result = "Thank you for your donation!";
+     }
+
+    }
+   
+?>
+<div class="alert alert-info" role="alert">
+    <?php echo $result; ?>
+</div>
 </body>
 </html> 
