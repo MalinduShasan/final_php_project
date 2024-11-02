@@ -3,16 +3,36 @@ include '../database/regDB.php'; // Ensure this includes the connection to the d
 
 // Initialize variables to store error messages
 $nameErr = $emailErr = $passwordErr = $repeatPasswordErr = "";
-$name = $email = "";
+$firstNameErr = $lastNameErr = $phoneErr = $addressErr = $zipCodeErr = "";
+$username = $email = $first_name = $last_name = $phone_number = $address = $zip_code = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Validate Full Name
-    if (empty(trim($_POST['fullname']))) {
-        $nameErr = "Full name is required.";
+    // Validate Username
+    if (empty(trim($_POST['username']))) {
+        $nameErr = "Username is required.";
     } else {
-        $name = trim($_POST['fullname']);
-        if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-            $nameErr = "Only letters and white space allowed.";
+        $username = trim($_POST['username']);
+        if (!preg_match("/^[a-zA-Z0-9_]*$/", $username)) {
+            $nameErr = "Only letters, numbers, and underscores allowed.";
+        }
+    }
+
+    // Validate Full Name
+    if (empty(trim($_POST['first_name']))) {
+        $firstNameErr = "First name is required.";
+    } else {
+        $first_name = trim($_POST['first_name']);
+        if (!preg_match("/^[a-zA-Z ]*$/", $first_name)) {
+            $firstNameErr = "Only letters and white space allowed.";
+        }
+    }
+
+    if (empty(trim($_POST['last_name']))) {
+        $lastNameErr = "Last name is required.";
+    } else {
+        $last_name = trim($_POST['last_name']);
+        if (!preg_match("/^[a-zA-Z ]*$/", $last_name)) {
+            $lastNameErr = "Only letters and white space allowed.";
         }
     }
 
@@ -43,13 +63,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+    // Validate Phone Number
+    if (!empty(trim($_POST['phone_number']))) {
+        $phone_number = trim($_POST['phone_number']);
+        if (!preg_match("/^[0-9]*$/", $phone_number)) {
+            $phoneErr = "Invalid phone number.";
+        }
+    }
+
+    // Validate Address
+    if (empty(trim($_POST['address']))) {
+        $addressErr = "Address is required.";
+    } else {
+        $address = trim($_POST['address']);
+    }
+
+    // Validate Zip Code
+    if (!empty(trim($_POST['zip_code']))) {
+        $zip_code = trim($_POST['zip_code']);
+        if (!preg_match("/^[0-9]*$/", $zip_code)) {
+            $zipCodeErr = "Invalid zip code.";
+        }
+    }
+
     // If no errors, proceed with further processing (like saving to a database)
-    if (empty($nameErr) && empty($emailErr) && empty($passwordErr) && empty($repeatPasswordErr)) {
+    if (empty($nameErr) && empty($emailErr) && empty($passwordErr) && empty($repeatPasswordErr) &&
+        empty($firstNameErr) && empty($lastNameErr) && empty($phoneErr) && empty($addressErr) && empty($zipCodeErr)) {
+        
         // Hash password for security
         $hashedPassword = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
         
-        // Insert user into database
-        $stmt = $conn->prepare("INSERT INTO USER (Full_name, email, password) VALUES (?, ?, ?)");
+        // Prepare the insert statement
+        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, email, first_name, last_name, phone_number, address, zip_code, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'user')");
         
         // Check if prepare() was successful
         if (!$stmt) {
@@ -57,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Bind parameters
-        if (!$stmt->bind_param("sss", $name, $email, $hashedPassword)) {
+        if (!$stmt->bind_param("sssssssss", $username, $hashedPassword, $email, $first_name, $last_name, $phone_number, $address, $zip_code)) {
             die("Bind parameters failed: " . $stmt->error); // Check for bind error
         }
 
@@ -115,25 +160,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             font-size: 0.9em;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            .navbar-brand img {
-                display: none; /* Hide logo on smaller screens */
-            }
+        .emp{
+            height: 300px;
         }
 
-        @media (max-width: 576px) {
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
-            .form-group input {
-                font-size: 0.9em;
-            }
-        }
     </style>
 </head>
 <body>
@@ -153,26 +183,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div>
 </nav>
+<div class="emp">
 
+</div>
 <!-- Form Body - Centered -->
-<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="d-flex justify-content-center align-items-center vh-100" class = "f1">
     <div class="container">
+        <h2 class="text-center">Sign Up</h2> <!-- Heading added here -->
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <input type="text" name="fullname" placeholder="Full name" class="form-control" required value="<?php echo htmlspecialchars($name); ?>">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="form-control" required value="<?php echo htmlspecialchars($username); ?>">
                 <span class="error-message"><?php echo $nameErr; ?></span>
             </div>
             <div class="form-group">
-                <input type="email" name="email" placeholder="Email" class="form-control" required value="<?php echo htmlspecialchars($email); ?>">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name" class="form-control" required value="<?php echo htmlspecialchars($first_name); ?>">
+                <span class="error-message"><?php echo $firstNameErr; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name" class="form-control" required value="<?php echo htmlspecialchars($last_name); ?>">
+                <span class="error-message"><?php echo $lastNameErr; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required value="<?php echo htmlspecialchars($email); ?>">
                 <span class="error-message"><?php echo $emailErr; ?></span>
             </div>
             <div class="form-group">
-                <input type="password" name="password" placeholder="Password" class="form-control" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
                 <span class="error-message"><?php echo $passwordErr; ?></span>
             </div>
             <div class="form-group">
-                <input type="password" name="repeat_password" placeholder="Repeat Password" class="form-control" required>
+                <label for="repeat_password">Repeat Password</label>
+                <input type="password" name="repeat_password" id="repeat_password" class="form-control" required>
                 <span class="error-message"><?php echo $repeatPasswordErr; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" name="phone_number" id="phone_number" class="form-control" value="<?php echo htmlspecialchars($phone_number); ?>">
+                <span class="error-message"><?php echo $phoneErr; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" class="form-control" required value="<?php echo htmlspecialchars($address); ?>">
+                <span class="error-message"><?php echo $addressErr; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="zip_code">Zip Code</label>
+                <input type="text" name="zip_code" id="zip_code" class="form-control" value="<?php echo htmlspecialchars($zip_code); ?>">
+                <span class="error-message"><?php echo $zipCodeErr; ?></span>
             </div>
             <div class="form-btn">
                 <input type="submit" name="submit1" value="Register" class="btn btn-primary">
