@@ -311,6 +311,7 @@
             display: block;
             margin: 10px 0 5px;
             font-size: 25px;
+            font-weight: bold;
         }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
@@ -322,10 +323,18 @@
             border-radius: 4px;
             box-sizing: border-box;
             font-size: 16px;
+            transition: border-color 0.3s;
         }
         .contact-form textarea {
             resize: vertical;
             min-height: 100px;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form input[type="tel"]:focus,
+        .contact-form textarea:focus {
+            border-color: #e58e26;
+            outline: none;
         }
         .contact-form button {
             width: 100%;
@@ -336,6 +345,7 @@
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
+            transition: background-color 0.3s;
         }
         .map-container {
             background-color: #e3e3e3;
