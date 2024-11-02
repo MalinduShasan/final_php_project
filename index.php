@@ -307,9 +307,6 @@
             justify-content: space-between;
             box-sizing: border-box;
         }
-        .contact-form h2 {
-            margin-bottom: 20px;
-        }
         .contact-form label {
             display: block;
             margin: 10px 0 5px;
@@ -359,6 +356,7 @@
             background-color: #e58e26;
             color: #fff;
             padding: 20px 10px;
+            margin-top: 20px;
             text-align: center;
             font-family: 'Arial', sans-serif;
         }
